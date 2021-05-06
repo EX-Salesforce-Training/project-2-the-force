@@ -1,0 +1,45 @@
+<apex:page controller="QuizController" sidebar="false" showHeader="false">
+    <apex:slds />
+    <apex:stylesheet value="{!URLFOR($Resource.StyleZip, '/css/index.css')}" />
+	<apex:stylesheet value="{!URLFOR($Resource.StyleZip, 'css/quiz.css')}" />
+    <c:NavBar />
+    <main class="quizMain">
+        <h1 class="leadIntroHeader">QUIZ RESULTS</h1><br />
+        <div class="slds-scope">
+            <div class="slds-grid slds-gutters">
+                <div class="slds-col slds-size_2-of-12">
+                </div>
+                <div class="slds-col slds-size_8-of-12">
+                    <div class="slds-grid slds-gutters">
+                        <div class="slds-col slds-size_3-of-12 quizResultsFields">
+                            Correct:<br />
+                            Incorrect:<br />
+                            Final Score:<br />
+                            <br />
+                            Total Score:<br />
+                            Previous Rank:<br />
+                            New Rank:
+                        </div>
+                        <div class="slds-col slds-size_2-of-12 quizResults">
+                            <span style="color:#595">{!fin}</span><br />
+                            <span style="color:#933">{!incorrect}</span><br />
+                            <span style="color:#5D4B6F">{!percentage}%</span><br />
+                            <br />
+                            <span style="color:#595">{!totalscore}</span><br />
+                            <span style="color:#5D4B6F">{!prevRank}</span><br />
+                            <apex:outputText value="↓{!currRank}" rendered="{!prevRank<currRank}" style="color:#933;" />
+                            <apex:outputText value="↑{!currRank}" rendered="{!prevRank>currRank}" style="color:#595;" />
+                            <apex:outputText value="{!currRank}" rendered="{!prevRank=currRank}" style="color:#5D4B6F;" />
+                        </div>
+                        <div class="slds-col slds-size_7-of-12">
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-col slds-size_2-of-12">
+                </div>
+            </div>
+            <h2 class="mainLink" style="margin-top:20px;"><a href="/apex/quizLeaderboard">View Leaderboard</a></h2>
+        </div>
+    </main>
+    <apex:includeScript value="{!$Resource.customJavascript}"/>
+</apex:page>

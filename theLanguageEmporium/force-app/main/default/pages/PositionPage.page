@@ -1,0 +1,32 @@
+<apex:page sidebar="false" showChat="false" showHeader="false" controller="RecruitingWizard" standardStylesheets="false" lightningStylesheets="true"> 
+    <apex:slds />
+    <apex:stylesheet value="{!URLFOR($Resource.StyleZip, 'css/index.css')}"/>
+    <c:NavBar />
+    <c:BackToPositions rendered="{!ISBLANK(pickedPosition.id)}"/>
+    <apex:pageBlock rendered="{!NOT(ISBLANK(pickedPosition.id))}">
+      <main style="display:flex; padding:25px 100px;">
+    	<section style="width:50%; padding: 25px 50px;">
+    		<h2 style="font-size:35px;">
+            	{!pickedPosition.name}
+        	</h2>
+        	<p>
+            	<Apex:OutputField value="{!pickedPosition.Description__c}"/>
+            	<br/>
+           		If nobody spoke a different language, there wouldn't be much need for The Language Emporium.
+            	As such, The Language Emporium is an Equal Opportunity Employer that celebrates everybody of different cultures,
+				backgrounds, races, sexualities, genders, disabilities and all the people the world has to offer in an effort 
+				to engage our learners with as much diversity of thought and language that the world itself provides. 
+        	</p>
+    	</section>
+    	<section style="width:50%; padding: 0 50px; align-self:center;">
+       		<apex:form >
+                	<h3 style="font-size:30px; text-align:center;">
+                        Your next step to a world full of enriching languages and inspiring colleagues starts today!
+                    </h3>
+                	<apex:commandButton style="width:50%; margin:10px 25%;" action="{!candidatePage}" value="Apply Now!"/>
+        	</apex:form>
+    </section>
+    </main>
+    <apex:includeScript value="{!$Resource.customJavascript}"/>
+    </apex:pageBlock>
+</apex:page>

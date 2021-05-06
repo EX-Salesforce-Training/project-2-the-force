@@ -1,5 +1,0 @@
-<apex:component controller="RecruitingWizard" layout="none">
-    <apex:form >
-    	<apex:commandLink action="{!recruitingLanding}" value="Something went wrong, please return to our position Page to continue" />
-    </apex:form>
-</apex:component>

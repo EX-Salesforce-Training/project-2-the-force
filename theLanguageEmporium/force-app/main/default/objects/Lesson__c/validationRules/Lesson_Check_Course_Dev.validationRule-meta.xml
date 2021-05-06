@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lesson_Check_Course_Dev</fullName>
+    <active>true</active>
+    <errorConditionFormula>RecordType.DeveloperName = &apos;Lesson&apos; &amp;&amp; ISBLANK( Course_Developer__c )</errorConditionFormula>
+    <errorDisplayField>Course_Developer__c</errorDisplayField>
+    <errorMessage>This lesson must have a course developer attached to it!</errorMessage>
+</ValidationRule>

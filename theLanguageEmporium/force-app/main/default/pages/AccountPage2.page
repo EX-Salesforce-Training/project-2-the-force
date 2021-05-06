@@ -1,0 +1,13 @@
+<apex:page standardController="Account" recordSetVar="accountList"  extensions="AccountStdExtension" lightningStylesheets="true">
+    <apex:pageBlock title="Accounts And Contacts">
+        <apex:pageBlockTable value="{!accountList}" var="acc">
+            <apex:column value="{!acc.Name}"/>
+            <apex:column headerValue="Contacts">
+                <apex:pageBlockTable value="{!acc.Contacts}" var="con">
+                    <apex:column value="{!con.Name}" />
+                    <apex:column value="{!con.Phone}" />
+                </apex:pageBlockTable>
+            </apex:column>
+        </apex:pageBlockTable>
+    </apex:pageBlock>
+</apex:page>

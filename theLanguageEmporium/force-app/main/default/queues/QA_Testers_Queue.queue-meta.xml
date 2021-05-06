@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>false</doesSendEmailToMembers>
+    <name>QA Testers Queue</name>
+    <queueMembers>
+        <roles>
+            <role>Head_of_Quality_Assurance</role>
+            <role>Quality_Assurance_Tester</role>
+        </roles>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>Task</sobjectType>
+    </queueSobject>
+</Queue>

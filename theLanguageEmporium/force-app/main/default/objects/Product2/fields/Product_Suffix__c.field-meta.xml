@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Product_Suffix__c</fullName>
+    <externalId>false</externalId>
+    <formula>CASE(Family,
+&quot;Course&quot;,&quot;COU&quot;,
+&quot;Textbook&quot;,&quot;TXT&quot;,
+&quot;Tutoring&quot;,&quot;TUT&quot;,
+&quot;Cheatsheet&quot;,&quot;CHS&quot;,
+&quot;&quot;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Product Suffix</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

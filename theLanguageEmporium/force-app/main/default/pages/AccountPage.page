@@ -1,0 +1,17 @@
+<apex:page standardController="Account" recordSetVar="accts">
+    <apex:form >
+        <apex:pageBlock >
+            <apex:pageBlockButtons >
+                <apex:commandButton action="{!save}" value="Save" />
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection >
+                <apex:pageBlockTable value="{!accts}" var="acct">
+                    <apex:column value="{!acct.Name}" />
+                </apex:pageBlockTable>
+                <apex:pageBlockTable value="{!account.Contacts}" var="ct">
+                    <apex:column value="{!ct.FirstName}" />
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>
