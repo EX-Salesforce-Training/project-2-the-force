@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Tutoring_Check_Tutor</fullName>
+    <active>true</active>
+    <errorConditionFormula>RecordType.DeveloperName = &apos;Tutoring&apos; &amp;&amp; ISBLANK(Tutor__c)</errorConditionFormula>
+    <errorDisplayField>Tutor__c</errorDisplayField>
+    <errorMessage>This scheduled tutoring must have a tutor associated with it!</errorMessage>
+</ValidationRule>

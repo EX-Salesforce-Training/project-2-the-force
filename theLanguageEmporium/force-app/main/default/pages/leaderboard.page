@@ -1,0 +1,69 @@
+<apex:page controller="LeaderboardController" sidebar="false" showHeader="false">
+    <apex:slds />
+    <apex:stylesheet value="{!URLFOR($Resource.StyleZip, 'css/index.css')}" />
+    <apex:stylesheet value="{!URLFOR($Resource.StyleZip, 'css/quiz.css')}" />
+    <c:NavBar />    
+    <main id="leadIntro">
+        <h1 class="leadIntroHeader">TLE - Happy Quiz Fun Times!™</h1><br />
+        <div class="greeting"><apex:dynamicComponent componentValue="{!Greeting}" />, {!$User.communityNickname}!</div>
+        <div class="slds-scope">
+            <div class="slds-grid slds-gutters">
+                <div class="slds-col slds-size_5-of-12 leadIntroBody">
+                    <h2 class="mainLink"><a href="/apex/quiz">Take Quiz</a></h2>
+                    <b><i>Test your knowledge!</i></b> Take a quiz based on one of the courses you have
+                    bought or participated in. These quizzes are intended to not only reinforce
+                    your learning, but they can also serve as proof of completion!
+                </div>
+                <div class="slds-col slds-size_2-of-12">
+                </div>
+                <div class="slds-col slds-size_5-of-12 leadIntroBody">
+                    <h2 class="mainLink"><a href="/apex/quizLeaderboard">View Leaderboard</a></h2>
+                    <b><i>See how you stack up!</i></b>  Testing your knowledge is useless without using
+                    random strangers as a measuring stick. Think you’re smart? View the
+                    leaderboard and maybe think twice about that self-assessment!
+                </div>
+            </div><br />
+            <br />
+            <br />
+            <br />
+            <h1 class="leadIntroHeader">Latest Scores</h1>
+            <div class="slds-grid slds-gutters" style="width:75%;margin:auto;">
+                <div class="slds-col slds-size_2-of-12">
+                    <b><i>Date</i></b><br />
+                    <apex:repeat value="{!datetimes}" var="datetime">
+                        <apex:outputText value="{0,date,yyyy-MM-dd}">
+                            <apex:param value="{!datetime}" />
+                        </apex:outputText><br />
+                    </apex:repeat>
+                </div>
+                <div class="slds-col slds-size_1-of-12">
+                    <b><i>Time</i></b><br />
+                    <apex:repeat value="{!datetimes}" var="datetime">
+                        <apex:outputText value="{0,date,HH:mm}">
+                            <apex:param value="{!datetime}" />
+                        </apex:outputText><br />
+                    </apex:repeat>
+                </div>
+                <div class="slds-col slds-size_4-of-12">
+                    <b><i>Quiz</i></b><br />
+                    <apex:repeat value="{!quiznames}" var="quizname">
+                        {!quizname}<br />
+                    </apex:repeat>
+                </div>
+                <div class="slds-col slds-size_3-of-12">                    
+                    <b><i>User</i></b><br />
+					<apex:repeat value="{!nicknames}" var="nickname">
+                        {!nickname}<br />
+                    </apex:repeat>
+                </div>
+                <div class="slds-col slds-size_2-of-12">
+                    <b><i>Score</i></b><br />
+					<apex:repeat value="{!scores}" var="score">
+                        {!score}<br />
+                    </apex:repeat>
+                </div>
+            </div>
+        </div>
+    </main>
+    <apex:includeScript value="{!$Resource.customJavascript}"/>
+</apex:page>

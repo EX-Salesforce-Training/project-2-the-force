@@ -1,0 +1,22 @@
+<apex:page showHeader="false" sidebar="false" showChat="false" controller="learnerController">
+    <slds/>
+   <!-- <apex:stylesheet value = "{!$Resource.StyleZip,'/css/index.css'}"/>-->
+    <c:NavBar ></c:NavBar>
+    
+    <apex:form >
+        <apex:pageBlock title="Session Enrollment">
+            <apex:pageBlockSection >
+                <apex:inputField value="{!newSession.name}"> </apex:inputField> <br/>
+               	<apex:outputField title="Learner: " value="{!newSession.Learner__c}"/>  <br/>
+                <apex:inputField value="{!newSession.Tutor__c}"> </apex:inputField>  <br/>
+                <apex:inputField value="{!newSession.Duration__c}"> </apex:inputField>  <br/>
+                <apex:inputField value="{!newSession.Language__c}"> </apex:inputField> <br/>
+                <apex:inputField value="{!newSession.Date__c}"> </apex:inputField> <br/>
+            </apex:pageBlockSection>
+            <apex:commandButton value="Book Session" action="{!saveSession}"/>
+            
+            
+        </apex:pageBlock>
+    <apex:commandButton immediate="true" value="Return to Learner Page" action="{!returnToLearnerPage}"/>
+    </apex:form>
+</apex:page>

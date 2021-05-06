@@ -1,0 +1,26 @@
+<apex:page sidebar="false" showChat="false" showHeader="false" controller="RecruitingWizard" standardStylesheets="false" lightningStylesheets="true">
+    <apex:slds />
+    <apex:stylesheet value="{!URLFOR($Resource.StyleZip, 'css/index.css')}"/>
+    <c:NavBar />
+    <main style="padding: 100px; display:flex; flex-wrap: wrap;">
+        <h1 style="width: 100%; font-size: 50px; display: block; text-align:center;">Open Positions</h1>
+            	 <section style="width:50%; padding: 50px; content-sizing: border-box;">
+                	<apex:repeat value="{!positions}" var="position">
+                        <apex:form >
+                            <apex:commandLink style="font-size: 30px;" action="{!positionPage}" value="{!position.Name}">
+                            	<apex:param name="position" assignTo="{!pickedPositionId}" value="{!position.id}"/>
+                        	</apex:commandLink>
+                    	</apex:form>
+            		</apex:repeat>
+            	</section>
+        		<section style="width:50%; padding: 50px; content-sizing:border-box;">
+            		<h2 style="font-size:35px; font-weight:700; width: 100%;">
+          				You never know where language can take you.
+            		</h2>
+            		<p>
+                		Embolden your career with a position at The Language Emporium and Learn from our team members all over the world!
+            		</p>
+            	</section>
+    </main>
+    <apex:includeScript value="{!$Resource.customJavascript}"/>
+</apex:page>

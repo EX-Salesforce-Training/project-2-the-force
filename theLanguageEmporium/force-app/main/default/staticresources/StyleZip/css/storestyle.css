@@ -1,0 +1,54 @@
+body{
+    display:flex;
+}
+
+div.items-panel {
+	width: 70%;
+	margin-left: 1em;
+}
+
+.items{
+    display:flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin:auto;
+}
+.OrderItems {
+	position: sticky;
+    top: 0;
+    right:0;
+    width:25%
+}
+
+.single-item {
+    display: block;
+    margin:  0.5em;
+    text-align: center;
+    padding: 70px 0;
+}
+
+.item {
+    color: rgb(163, 161, 161);
+    display : block;
+    padding: 1em;
+    border: 1px solid grey;
+    margin: 1em;
+    align-items: stretch;
+    height: 300px;
+    width: 45%;
+    position: relative;
+    background-color: #5D4B6F;
+}
+
+.item:hover{
+    background-color: #78638d;
+
+}
+
+span.add-to-cart {
+	align-self: flex-end;
+	display: block;
+	position: absolute;
+	right: 5px;
+	bottom: 5px;
+}

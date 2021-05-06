@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lesson_has_Lesson_Number</fullName>
+    <active>true</active>
+    <description>Checks to make sure that a lesson has a lesson number. Tutorings don&apos;t need lesson numbers, though.</description>
+    <errorConditionFormula>RecordType.Name = &apos;Lesson&apos; &amp;&amp; ISBLANK( Lesson_Number__c )</errorConditionFormula>
+    <errorDisplayField>Lesson_Number__c</errorDisplayField>
+    <errorMessage>Lessons must have a lesson number!</errorMessage>
+</ValidationRule>

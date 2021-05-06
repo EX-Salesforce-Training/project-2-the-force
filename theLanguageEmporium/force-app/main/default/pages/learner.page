@@ -1,0 +1,66 @@
+<apex:page showHeader="false" sidebar="false" showChat="false" controller="learnerController" >
+    <slds/>
+    <apex:form >
+      <!-- Welcome Header-->
+        <apex:pageBlock title="Welcome {!currentContact.name}!">
+            
+        <!---- Contact Information ---->
+            <div class = "a">
+           <apex:pageBlockSection >
+                <h1> Account Information </h1> <br/>
+               <apex:outputField style="float:left" title="Name: " value="{!currentContact.name}" />  <br/>
+               <apex:outputField title="Email: " value="{!currentContact.email}"/> <br/>
+               <apex:outputField title="Phone: " value="{!currentContact.phone}"/> <br/>
+               <apex:outputField title="Learner Since: " value="{!currentContact.Learner_Since__c}"/> <br/>
+          </apex:pageBlockSection>
+                 </div>
+            
+        <!------ Current Courses ------>
+            <apex:pageBlockSection >
+                <h1> Current Enrolled Course </h1>
+               <!-- <p> Course Name: </p>-->
+                <apex:outputField title="Course: " value="{!currentContact.Current_Course__c}"/><br/>
+            </apex:pageBlockSection>
+            
+        <!------ Current Lessons------>
+            <apex:pageBlockSection >
+                <h1> Current Enrolled Lessons </h1>
+                <apex:pageBlockTable value="{!lessons}" var="lesson"> 
+                    <apex:column value="{!lesson.name}"/>
+                    <apex:column value="{!lesson.Course__c}"/>
+                    <apex:column value="{!lesson.Lesson_Number__c}"/>
+                    <apex:column value="{!lesson.Language_s__c}"/>
+                    <apex:column value="{!lesson.Completion_Status__c}"/> 
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+            
+        <!------ Sessions [Link URL to Page with All Session Information]----->
+            <apex:pageBlockSection >
+                <h1> Sessions </h1> 
+                 <apex:pageBlockTable value="{!sessions}" var="session"> 
+                    <apex:column value="{!session.Tutor__c}"/>
+                    <apex:column value="{!session.Duration__c}"/>
+                    <apex:column value="{!session.Language__c}"/>
+                    <apex:column value="{!session.Date__c}"/>
+                </apex:pageBlockTable>
+                <apex:commandButton value="Book New Session" action="{!getNewSession}"/>
+            </apex:pageBlockSection>
+              
+        <!------ Last Completed Course --------->
+            <apex:pageBlockSection >
+                <h1> Recent Courses </h1>
+                 <apex:outputField title="Last Completed Course: " value="{!currentContact.Last_Completed_Course__c}"/>
+            </apex:pageBlockSection>
+            
+        <!----- Tutors ----------------->
+            <apex:pageBlockSection >
+                <h1> Tutors </h1>
+                <apex:pageBlockTable value="{!tutors}" var="tutor"> 
+                    <apex:column value="{!tutor.name}"/>
+                    <apex:column value="{!tutor.Email__c}"/>
+                    <apex:column value="{!tutor.Language__c}"/>
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>
