@@ -12,7 +12,7 @@
             </div>
         </header>
 
-        Only render 
+        <!-- Only render grade for quiz cards -->
         <aura:if isTrue="{!v.quiz}">
           <div class="slds-card__body slds-card__body_inner">Grade:</div>
           <span class="slds-card__body slds-m-right_small" id="grade-value">95%</span>
