@@ -410,11 +410,11 @@
         <field>Development_Team__c.Team_Lead__c</field>
         <readable>false</readable>
     </fieldPermissions>
-    <fieldPermissions>
+    <!-- <fieldPermissions>
         <editable>false</editable>
         <field>Job_Application__c.Candidate__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
+        <readable>true</readable>
+    </fieldPermissions> -->
     <fieldPermissions>
         <editable>false</editable>
         <field>Job_Application__c.Name__c</field>
@@ -812,6 +812,15 @@
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>Tutor__c</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>Contact</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
 </PermissionSet>
