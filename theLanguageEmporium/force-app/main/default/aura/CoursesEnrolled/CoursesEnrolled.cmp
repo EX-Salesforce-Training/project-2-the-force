@@ -1,41 +1,41 @@
 <aura:component implements="forceCommunity:availableForAllPageTypes" access="global" >
-    
-    <!-- a lightning card that allows the user to have a concentrated view of their enrolled courses-->
-    <div class="container slds-m-around_large" id="courses-enrolled">
-        <lightning:card footer="Thank you for choosing TheLanguageEmporium">
-            <div class="container slds-m-around_large" id="courses-enrolled">
-                <h3  class="slds-text-heading_large slds-align_absolute-center slds-m-bottom_x-small">Currently Enrolled Courses</h3>
-            </div>
-            
-            
-            <ul class="slds-p-horizontal_small">
-                <li class=" slds-text-heading_medium">German
-                    <div>
-                        <h5 class="slds-text-body_large slds-align_absolute-center slds-m-around_medium">Check out your current progress!</h5>
-                        <!-- Progress Bar Component-->
-                        <lightning:progressBar value="15" size="medium" />
-                    </div>
-                </li><br/>
-                <li class=" slds-text-heading_medium">French
-                    <div>
-                        <h5 class="slds-text-body_large slds-align_absolute-center slds-m-around_medium">Check out your current progress!</h5>
-                        <lightning:progressBar value="100" size="small" />
-                    </div>
-                </li><br/>
-                <li class=" slds-text-heading_medium">Greek
-                    <div>
-                        <h5 class="slds-text-body_large slds-align_absolute-center slds-m-around_medium">Check out your current progress!</h5>
-                        <lightning:progressBar value="50" size="medium" />
-                    </div>
-                </li ><br/>
-                <li class=" slds-text-heading_medium">Spanish
-                    <div>
-                        <h5 class="slds-text-body_large slds-align_absolute-center slds-m-around_medium">Check out your current progress!</h5>
-                        <lightning:progressBar value="40" size="large" />
-                    </div>
-                </li><br/>
-            </ul>
-            
+
+<!-- a lightning card that allows the user to have a concentrated view of their enrolled courses-->
+<div class="container slds-m-around_large" id="courses-enrolled">
+    <lightning:card footer="Thank you for choosing TheLanguageEmporium">
+        <div class="container slds-m-around_large" id="courses-enrolled">
+            <h3  class="slds-text-heading_large slds-align_absolute-center slds-m-bottom_x-small">Currently Enrolled Courses</h3>
+        </div>
+        
+        
+        <ul class="slds-p-horizontal_small">
+            <li class=" slds-text-heading_medium">German
+                <div>
+                    <h5 class="slds-text-body_large slds-align_absolute-center slds-m-around_medium">Check out your current progress!</h5>
+                    <!-- Progress Bar Component-->
+                    <lightning:progressBar value="15" size="medium" />
+                </div>
+            </li><br/>
+            <li class=" slds-text-heading_medium">French
+                <div>
+                    <h5 class="slds-text-body_large slds-align_absolute-center slds-m-around_medium">Check out your current progress!</h5>
+                    <lightning:progressBar value="100" size="small" />
+                </div>
+            </li><br/>
+            <li class=" slds-text-heading_medium">Greek
+                <div>
+                    <h5 class="slds-text-body_large slds-align_absolute-center slds-m-around_medium">Check out your current progress!</h5>
+                    <lightning:progressBar value="50" size="medium" />
+                </div>
+            </li ><br/>
+            <li class=" slds-text-heading_medium">Spanish
+                <div>
+                    <h5 class="slds-text-body_large slds-align_absolute-center slds-m-around_medium">Check out your current progress!</h5>
+                    <lightning:progressBar value="40" size="large" />
+                </div>
+            </li><br/>
+        </ul>
+        
         </lightning:card>
     </div>
 </aura:component>
