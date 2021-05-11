@@ -1,97 +1,122 @@
 <aura:component>
-    <h2 class="slds-text-heading_large slds-align_absolute-center slds-m-around_medium">German 1501</h2>
-    <div class="container slds-m-around_large" id="lessons-container">
-        <h1 class="slds-text-heading_medium slds-m-bottom_x-small">Lessons Go Here</h1>
-        <div id="lessons-list" class="slds-box">
-            
-            <!--Sub component Lesson Card -->
-            <article class="slds-card">
-                <div class="slds-card__header slds-grid">
-                    <header class="slds-media slds-media_center slds-has-flexi-truncate">
-                        <div class="slds-media__figure">
-                            <div class="slds-card__header-title">
-                                <span>Lesson 1</span>
+
+    <aura:attribute name="activeQuiz" type="boolean" default="true"/>
+    <aura:attribute name="activeLesson" type="boolean"/>
+    
+    <!-- 
+        The Main course display portion will remain rendered 
+        and be hidden with a CSS display:none since we will
+        be coming back to this content when a quiz/lesson concludes.     
+    -->
+
+        <h2 class="slds-text-heading_large slds-align_absolute-center slds-m-around_medium">German 1501</h2>
+        <div class="container slds-m-around_large" id="lessons-container">
+            <h1 class="slds-text-heading_medium slds-m-bottom_x-small">Lessons Go Here</h1>
+            <div id="lessons-list" class="slds-box">
+                
+                <!-- 
+                    The sub-components for quiz and lesson cards will just be ContentCard,
+                    and dynamically change based on if it's a quiz or a lesson
+                -->
+
+                <!--Sub component Lesson Card -->
+                <article class="slds-card">
+                    <div class="slds-card__header slds-grid">
+                        <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                            <div class="slds-media__figure">
+                                <div class="slds-card__header-title">
+                                    <span>Lesson 1</span>
+                                </div>
                             </div>
-                        </div>
-                    </header>
-                </div>
-                <div class="slds-card__body slds-card__body_inner">Anything can go into the card body</div>
-            </article>
-            <article class="slds-card">
-                <div class="slds-card__header slds-grid">
-                    <header class="slds-media slds-media_center slds-has-flexi-truncate">
-                        <div class="slds-media__figure">
-                            <div class="slds-card__header-title">
-                                <span>Lesson 2</span>
+                        </header>
+                    </div>
+                    <div class="slds-card__body slds-card__body_inner">Anything can go into the card body</div>
+                </article>
+                <article class="slds-card">
+                    <div class="slds-card__header slds-grid">
+                        <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                            <div class="slds-media__figure">
+                                <div class="slds-card__header-title">
+                                    <span>Lesson 2</span>
+                                </div>
                             </div>
-                        </div>
-                    </header>
-                </div>
-                <div class="slds-card__body slds-card__body_inner">Anything can go into the card body</div>
-            </article>
-            <article class="slds-card">
-                <div class="slds-card__header slds-grid">
-                    <header class="slds-media slds-media_center slds-has-flexi-truncate">
-                        <div class="slds-media__figure">
-                            <div class="slds-card__header-title">
-                                <span>Lesson 3</span>
+                        </header>
+                    </div>
+                    <div class="slds-card__body slds-card__body_inner">Anything can go into the card body</div>
+                </article>
+                <article class="slds-card">
+                    <div class="slds-card__header slds-grid">
+                        <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                            <div class="slds-media__figure">
+                                <div class="slds-card__header-title">
+                                    <span>Lesson 3</span>
+                                </div>
                             </div>
-                        </div>
-                    </header>
-                </div>
-                <div class="slds-card__body slds-card__body_inner">Anything can go into the card body</div>
-            </article>
-            
+                        </header>
+                    </div>
+                    <div class="slds-card__body slds-card__body_inner">Anything can go into the card body</div>
+                </article>
+                
+            </div>
         </div>
-    </div>
-    <div class="container slds-m-around_large" id="quizes-container">
-        <h1 class="slds-text-heading_medium slds-m-bottom_x-small">Quizes Go Here</h1>
-        <div id="quizes-list" class="slds-box ">
-            
-            <!--Sub component Quiz Card -->
-            <article class="slds-card">
-                <div class="slds-card__header slds-grid">
-                    <header class="slds-media slds-media_center slds-has-flexi-truncate">
-                        <div class="slds-media__figure">
-                            <div class="slds-card__header-title">
-                                <span>Quiz 1</span>
-                            </div>
-                        </div>
-                    </header>
-                    <div class="slds-card__body slds-card__body_inner">Grade:</div>
-                    <span class="slds-card__body slds-m-right_small" id="grade-value">95%</span>
-                </div>
+        <div class="container slds-m-around_large" id="quizes-container">
+            <h1 class="slds-text-heading_medium slds-m-bottom_x-small">Quizes Go Here</h1>
+            <div id="quizes-list" class="slds-box ">
                 
-            </article>
-            <article class="slds-card">
-                <div class="slds-card__header slds-grid">
-                    <header class="slds-media slds-media_center slds-has-flexi-truncate">
-                        <div class="slds-media__figure">
-                            <div class="slds-card__header-title">
-                                <span>Quiz 2</span>
+                <!--Sub component Quiz Card -->
+                <article class="slds-card">
+                    <div class="slds-card__header slds-grid">
+                        <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                            <div class="slds-media__figure">
+                                <div class="slds-card__header-title">
+                                    <span>Quiz 1</span>
+                                </div>
                             </div>
-                        </div>
-                    </header>
-                    <div class="slds-card__body slds-card__body_inner">Grade:</div>
-                    <span class="slds-card__body slds-m-right_small" id="grade-value">87%</span>
-                </div>
-                
-            </article>
-            <article class="slds-card">
-                <div class="slds-card__header slds-grid">
-                    <header class="slds-media slds-media_center slds-has-flexi-truncate">
-                        <div class="slds-media__figure">
-                            <div class="slds-card__header-title">
-                                <span>Quiz 3</span>
+                        </header>
+                        <div class="slds-card__body slds-card__body_inner">Grade:</div>
+                        <span class="slds-card__body slds-m-right_small" id="grade-value">95%</span>
+                    </div>
+                    
+                </article>
+                <article class="slds-card">
+                    <div class="slds-card__header slds-grid">
+                        <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                            <div class="slds-media__figure">
+                                <div class="slds-card__header-title">
+                                    <span>Quiz 2</span>
+                                </div>
                             </div>
-                        </div>
-                    </header>
-                    <div class="slds-card__body slds-card__body_inner">Grade:</div>
-                    <span class="slds-card__body slds-m-right_small" id="grade-value">--%</span>
-                </div>
+                        </header>
+                        <div class="slds-card__body slds-card__body_inner">Grade:</div>
+                        <span class="slds-card__body slds-m-right_small" id="grade-value">87%</span>
+                    </div>
+                    
+                </article>
+                <article class="slds-card">
+                    <div class="slds-card__header slds-grid">
+                        <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                            <div class="slds-media__figure">
+                                <div class="slds-card__header-title">
+                                    <span>Quiz 3</span>
+                                </div>
+                            </div>
+                        </header>
+                        <div class="slds-card__body slds-card__body_inner">Grade:</div>
+                        <span class="slds-card__body slds-m-right_small" id="grade-value">--%</span>
+                    </div>
+                    
+                </article>
                 
-            </article>
-            
+            </div>
         </div>
-    </div>
+	
+    <!--
+	<aura:if isTrue="isLesson">
+        <c:LessonComponent/>
+    </aura:if>
+    -->
+    <aura:if isTrue="activeQuiz">
+        <c:QuizComponent/>
+    </aura:if>
+    
 </aura:component>
