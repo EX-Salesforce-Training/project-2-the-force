@@ -1,13 +1,20 @@
 <aura:component>
   <aura:attribute name="lesson" type="boolean" default="true"/>
   <aura:attribute name="quiz" type="boolean" default="false"/>
+  <aura:attribute name="contentNum" type="Integer" default="1"/>
+  <aura:attribute name="contentName" type="String" default="Nouns"/>
+  <aura:attribute name="contentType" type="String" default="Lesson"/>
+  <aura:attribute name="lessonDescription" type="String" default="This is an lesson about nouns"/>
+  <aura:attribute name="quizGrade" type="integer" default="95"/>
+  
+
 
   <article class="slds-card">
     <div class="slds-card__header slds-grid">
         <header class="slds-media slds-media_center slds-has-flexi-truncate">
             <div class="slds-media__figure">
                 <div class="slds-card__header-title">
-                    <span id="card-title">Lesson 1</span>
+                    <span id="card-title">{!v.contentType} {!v.contentNum}. {!v.contentName} </span>
                 </div>
             </div>
         </header>
@@ -15,13 +22,13 @@
         <!-- Only render grade for quiz cards -->
         <aura:if isTrue="{!v.quiz}">
           <div class="slds-card__body slds-card__body_inner">Grade:</div>
-          <span class="slds-card__body slds-m-right_small" id="grade-value">95%</span>
+          <span class="slds-card__body slds-m-right_small" id="grade-value">{!v.quizGrade}%</span>
         </aura:if >
         
     </div>
     <!-- render description only for lesson cards -->
     <aura:if isTrue="{!v.lesson}">
-      <div class="slds-card__body slds-card__body_inner">Anything can go into the card body</div>
+      <div class="slds-card__body slds-card__body_inner">{!v.lessonDescription}</div>
     </aura:if>
   </article>
 </aura:component>	

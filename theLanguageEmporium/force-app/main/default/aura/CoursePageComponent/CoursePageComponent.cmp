@@ -1,5 +1,6 @@
 <aura:component>
 
+    <aura:attribute name="courseName" type="string" default="German 1501"/>
     <aura:attribute name="activeQuiz" type="boolean" default="true"/>
     <aura:attribute name="activeLesson" type="boolean"/>
     
@@ -9,7 +10,7 @@
         be coming back to this content when a quiz/lesson concludes.     
     -->
 
-        <h2 class="slds-text-heading_large slds-align_absolute-center slds-m-around_medium">German 1501</h2>
+        <h2 class="slds-text-heading_large slds-align_absolute-center slds-m-around_medium">{!v.courseName}</h2>
         <div class="container slds-m-around_large" id="lessons-container">
             <h1 class="slds-text-heading_medium slds-m-bottom_x-small">Lessons Go Here</h1>
             <div id="lessons-list" class="slds-box">
@@ -20,30 +21,7 @@
                 -->
 
                 <!--Sub component Lesson Card -->
-                <article class="slds-card">
-                    <div class="slds-card__header slds-grid">
-                        <header class="slds-media slds-media_center slds-has-flexi-truncate">
-                            <div class="slds-media__figure">
-                                <div class="slds-card__header-title">
-                                    <span>Lesson 1</span>
-                                </div>
-                            </div>
-                        </header>
-                    </div>
-                    <div class="slds-card__body slds-card__body_inner">Anything can go into the card body</div>
-                </article>
-                <article class="slds-card">
-                    <div class="slds-card__header slds-grid">
-                        <header class="slds-media slds-media_center slds-has-flexi-truncate">
-                            <div class="slds-media__figure">
-                                <div class="slds-card__header-title">
-                                    <span>Lesson 2</span>
-                                </div>
-                            </div>
-                        </header>
-                    </div>
-                    <div class="slds-card__body slds-card__body_inner">Anything can go into the card body</div>
-                </article>
+                <c:contentCard/>
                 <article class="slds-card">
                     <div class="slds-card__header slds-grid">
                         <header class="slds-media slds-media_center slds-has-flexi-truncate">
@@ -64,6 +42,7 @@
             <div id="quizes-list" class="slds-box ">
                 
                 <!--Sub component Quiz Card -->
+                
                 <article class="slds-card">
                     <div class="slds-card__header slds-grid">
                         <header class="slds-media slds-media_center slds-has-flexi-truncate">
