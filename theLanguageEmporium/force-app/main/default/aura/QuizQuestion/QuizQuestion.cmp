@@ -1,0 +1,49 @@
+<aura:component>
+  <aura:attribute name="Question" type = "String"/>
+
+  <article class="slds-card slds-col slds-size_1-of-1">
+    <div class="slds-card__header slds-grid">
+        <header class="slds-media slds-media_center slds-has-flexi-truncate">
+            <div class="slds-media__figure">
+                <div class="slds-card__header-title">
+                    <span>Question 1</span>
+                </div>
+            </div>
+        </header>
+    </div>
+    <div class="slds-card__body slds-card__body_inner slds-grid slds-wrap slds-gutters">
+      <fieldset class="slds-form-element">
+        <div class="slds-form-element__control">
+          <span class="slds-radio">
+            <input type="radio" id="radio-43" value="radio-43" name="default" checked="" />
+            <label class="slds-radio__label" for="radio-43">
+              <span class="slds-radio_faux"></span>
+              <span class="slds-form-element__label">Answer Option One</span>
+            </label>
+          </span>
+          <span class="slds-radio">
+            <input type="radio" id="radio-44" value="radio-44" name="default" />
+            <label class="slds-radio__label" for="radio-44">
+              <span class="slds-radio_faux"></span>
+              <span class="slds-form-element__label">Answer Option Two</span>
+            </label>
+          </span>
+          <span class="slds-radio">
+            <input type="radio" id="radio-44" value="radio-44" name="default" />
+            <label class="slds-radio__label" for="radio-44">
+              <span class="slds-radio_faux"></span>
+              <span class="slds-form-element__label">Answer Option Three</span>
+            </label>
+          </span>
+          <span class="slds-radio">
+            <input type="radio" id="radio-44" value="radio-44" name="default" />
+            <label class="slds-radio__label" for="radio-44">
+              <span class="slds-radio_faux"></span>
+              <span class="slds-form-element__label">Answer Option Four</span>
+            </label>
+          </span>
+        </div>
+      </fieldset>
+    </div>
+</article>
+</aura:component>	
