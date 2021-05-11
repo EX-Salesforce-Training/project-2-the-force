@@ -1,0 +1,9 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global" >
+<aura:attribute name="Contact" type="String" default="Bob">
+<div>
+<h5> Welcome {!v.Contact} to the Language Emporium</h5>
+
+</div>
+
+</aura:attribute>
+</aura:component>
