@@ -1,5 +1,5 @@
 ({
-    myAction : function(component, event, helper) {
-
+    getThisContent : function(component, event, helper) {
+        helper.retrieveContent(component);
     }
 })

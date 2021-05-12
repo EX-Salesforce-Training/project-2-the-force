@@ -1,6 +1,7 @@
-<aura:component>
+<aura:component controller="CourseContentController" access="global">
 
     <aura:attribute name="courseName" type="string" default="German 1501"/>
+    <aura:attribute name="courseId" type="string" default="0000"/>
     <aura:attribute name="activeQuiz" type="boolean" default="true"/>
     <aura:attribute name="activeLesson" type="boolean"/>
     
