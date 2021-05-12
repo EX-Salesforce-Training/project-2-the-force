@@ -9,19 +9,17 @@
         and be hidden with a CSS display:none since we will
         be coming back to this content when a quiz/lesson concludes.     
     -->
+        <div id="course-display">
 
+        </div>
         <h2 class="slds-text-heading_large slds-align_absolute-center slds-m-around_medium">{!v.courseName}</h2>
         <div class="container slds-m-around_large" id="lessons-container">
             <h1 class="slds-text-heading_medium slds-m-bottom_x-small">Lessons Go Here</h1>
             <div id="lessons-list" class="slds-box">
-                
-                <!-- 
-                    The sub-components for quiz and lesson cards will just be ContentCard,
-                    and dynamically change based on if it's a quiz or a lesson
-                -->
 
                 <!--Sub component Lesson Card -->
                 <c:contentCard/>
+                
                 <article class="slds-card">
                     <div class="slds-card__header slds-grid">
                         <header class="slds-media slds-media_center slds-has-flexi-truncate">
