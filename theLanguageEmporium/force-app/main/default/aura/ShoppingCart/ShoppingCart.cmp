@@ -1,0 +1,12 @@
+<aura:component>
+    <div class="container slds-m-around_large">
+        <h1 class="slds-text-heading_medium slds-m-bottom_x-small">Shopping Cart</h1>
+        <div id="shopping-cart-list" class="slds-box slds-clearfix">
+            <c:CourseInShoppingCart courseName="Intro to Spanish" />
+            <c:CourseInShoppingCart courseName="Japanese II" />
+        <div class="slds-float_right">
+        <button class="slds-m-top_small" >Checkout</button>
+        </div>
+        </div>
+    </div>
+</aura:component>	
