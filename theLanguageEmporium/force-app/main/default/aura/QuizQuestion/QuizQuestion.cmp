@@ -1,17 +1,23 @@
-<aura:component>
-  <aura:attribute name="QuestionNum" type = "Integer" default="1"/>
-  <aura:attribute name="Question" type = "String" default="What time is it in Germany?"/>
-  <aura:attribute name="Answer1" type="String" default="Zwei Uhr"/>
+<aura:component implements="force:hasRecordId" access="global">
+  <aura:attribute name="questionNum" type = "Integer" default="1"/>
+  <aura:attribute name="questionId" type = "Id" default="a0M5e000000AGwpEAG"/>
+  <aura:attribute name="fields" type="Object" />
   <aura:attribute name="Answer2" type="String" default="Fünf Uhr"/>
   <aura:attribute name="Answer3" type="String" default="Zehn Uhr"/>
   <aura:attribute name="Answer4" type="String" default="Guten Morgen"/>
+
+  <force:recordData aura:id = "contentRecord"
+                    recordId = "{!v.questionId}"
+                    targetFields="{!v.fields}"
+                    layoutType="FULL"
+  />
 
   <article class="slds-card slds-col slds-size_1-of-1">
     <div class="slds-card__header slds-grid">
         <header class="slds-media slds-media_center slds-has-flexi-truncate">
             <div class="slds-media__figure">
                 <div class="slds-card__header-title">
-                    <span>{!v.QuestionNum}. {!v.Question}</span>
+                    <span>{!v.questionNum}. {!v.fields.Prompt__c}</span>
                 </div>
             </div>
         </header>
@@ -20,29 +26,29 @@
       <fieldset class="slds-form-element" id="question-1">
         <div class="slds-form-element__control slds-grid slds-wrap slds-gutters">
           <span class="slds-radio slds-col slds-size_1-of-2 slds-m-around_x-small">
-            <input type="radio" id="{!'radio-1-' + v.QuestionNum}" value="{!'radio-1-' + v.QuestionNum}" name="{!'question-' + v.QuestionNum}" checked="" />
-            <label class="slds-radio__label" for="{!'radio-1-' + v.QuestionNum}">
+            <input type="radio" id="{!'radio-1-' + v.questionNum}" value="{!'radio-1-' + v.questionNum}" name="{!'question-' + v.questionNum}" checked="" />
+            <label class="slds-radio__label" for="{!'radio-1-' + v.questionNum}">
               <span class="slds-radio_faux"></span>
-              <span class="slds-form-element__label">{!v.Answer1}</span>
+              <span class="slds-form-element__label">{!v.fields.Correct_Answer__c}</span>
             </label>
           </span>
           <span class="slds-radio slds-col slds-size_1-of-2 slds-m-around_x-small">
-            <input type="radio" id="{!'radio-2-' + v.QuestionNum}" value="{!'radio-2-' + v.QuestionNum}" name="{!'question-' + v.QuestionNum}" />
-            <label class="slds-radio__label" for="{!'radio-2-' + v.QuestionNum}">
+            <input type="radio" id="{!'radio-2-' + v.questionNum}" value="{!'radio-2-' + v.questionNum}" name="{!'question-' + v.questionNum}" />
+            <label class="slds-radio__label" for="{!'radio-2-' + v.questionNum}">
               <span class="slds-radio_faux"></span>
               <span class="slds-form-element__label">{!v.Answer2}</span>
             </label>
           </span>
           <span class="slds-radio slds-col slds-size_1-of-2 slds-m-around_x-small">
-            <input type="radio" id="{!'radio-3-' + v.QuestionNum}" value="{!'radio-3-' + v.QuestionNum}" name="{!'question-' + v.QuestionNum}" />
-            <label class="slds-radio__label" for="{!'radio-3-' + v.QuestionNum}">
+            <input type="radio" id="{!'radio-3-' + v.questionNum}" value="{!'radio-3-' + v.questionNum}" name="{!'question-' + v.questionNum}" />
+            <label class="slds-radio__label" for="{!'radio-3-' + v.questionNum}">
               <span class="slds-radio_faux"></span>
               <span class="slds-form-element__label">{!v.Answer3}</span>
             </label>
           </span>
           <span class="slds-radio slds-col slds-size_1-of-2 slds-m-around_x-small">
-            <input type="radio" id="{!'radio-4-' + v.QuestionNum}" value="{!'radio-4-' + v.QuestionNum}" name="{!'question-' + v.QuestionNum}" />
-            <label class="slds-radio__label" for="{!'radio-4-' + v.QuestionNum}">
+            <input type="radio" id="{!'radio-4-' + v.questionNum}" value="{!'radio-4-' + v.questionNum}" name="{!'question-' + v.questionNum}" />
+            <label class="slds-radio__label" for="{!'radio-4-' + v.questionNum}">
               <span class="slds-radio_faux"></span>
               <span class="slds-form-element__label">{!v.Answer4}</span>
             </label>

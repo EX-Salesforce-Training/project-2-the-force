@@ -19,4 +19,14 @@ public with sharing class CourseContentController {
             throw new AuraHandledException(e.getMessage());
         }
     }
+
+    @AuraEnabled
+    public static List<Quiz_Question__c> getQuestions(String quizId, String learnerId){
+        try {
+            List<Quiz_Question__c> questions = New List<Quiz_Question__c>([SELECT id FROM Quiz_Question__c WHERE Quiz__c = :quizId ]);
+            return questions;
+        } catch (Exception e) {
+            throw new AuraHandledException(e.getMessage());
+        }
+    }
 }

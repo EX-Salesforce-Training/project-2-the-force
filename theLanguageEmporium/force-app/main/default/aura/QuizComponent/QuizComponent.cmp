@@ -1,70 +1,32 @@
-<aura:component>
-  <aura:attribute name="quizTitle" type="string" default="Quiz 1: Nouns"/>
+<aura:component controller="CourseContentController" implements="force:hasRecordId" access="global">
 
-  <h2 class="slds-text-heading_large slds-align_absolute-center slds-m-around_medium" id="quiz-title">{!v.quizTitle}</h2>
+  <aura:attribute name="quizId" type="Id" default="a0L5e0000001Vy7EAE" />
+  <aura:attribute name="fields" type="Object" />
+  <aura:attribute name="submitQuiz" type="Aura.Action"/>
+  <aura:attribute name="questionList" type="Object[]"/>
+  <!-- On Quiz init, get list of assocaiated Questions-->
+  <aura:handler name="init" value="{!this}" action="{!c.initQuiz}"/>
+
+  <force:recordData aura:id = "contentRecord"
+                    recordId = "{!v.quizId}"
+                    targetFields="{!v.fields}"
+                    layoutType="FULL"
+  />
+
+  <h2 class="slds-text-heading_large slds-align_absolute-center slds-m-around_medium" id="quiz-title">{!v.fields.Name}</h2>
 
   <div class="container slds-container_medium slds-align_absolute-center slds-grid slds-wrap" id="questions-container">
             
-            <!-- <aura:iteration>
-              <c:QuizQuestion />
-            </aura:iteration> -->
+            <aura:iteration items="{!v.questionList}" var="question">
+              <c:QuizQuestion questionId="{!question.Id}" questionNum="{!question.number}"/>
+            </aura:iteration>
 
-            <!--Sub component Question Card -->
-          
-         
-          <c:QuizQuestion/>
-
-          <article class="slds-card slds-col slds-size_1-of-1">
-            <div class="slds-card__header slds-grid">
-                <header class="slds-media slds-media_center slds-has-flexi-truncate">
-                    <div class="slds-media__figure">
-                        <div class="slds-card__header-title">
-                            <span>Question 2</span>
-                        </div>
-                    </div>
-                </header>
-            </div>
-            <div class="slds-card__body slds-card__body_inner slds-grid slds-wrap slds-gutters">
-              <fieldset class="slds-form-element" id="question-2">
-                <div class="slds-form-element__control slds-grid slds-wrap slds-gutters">
-                  <span class="slds-radio slds-col slds-size_1-of-2 slds-m-around_x-small">
-                    <input type="radio" id="radio-1" value="radio-1" name="default" checked="" />
-                    <label class="slds-radio__label" for="radio-1">
-                      <span class="slds-radio_faux"></span>
-                      <span class="slds-form-element__label">Answer Option One</span>
-                    </label>
-                  </span>
-                  <span class="slds-radio slds-col slds-size_1-of-2 slds-m-around_x-small">
-                    <input type="radio" id="radio-2" value="radio-2" name="default" />
-                    <label class="slds-radio__label" for="radio-2">
-                      <span class="slds-radio_faux"></span>
-                      <span class="slds-form-element__label">Answer Option Two</span>
-                    </label>
-                  </span>
-                  <span class="slds-radio slds-col slds-size_1-of-2 slds-m-around_x-small">
-                    <input type="radio" id="radio-3" value="radio-3" name="default" />
-                    <label class="slds-radio__label" for="radio-3">
-                      <span class="slds-radio_faux"></span>
-                      <span class="slds-form-element__label">Answer Option Three</span>
-                    </label>
-                  </span>
-                  <span class="slds-radio slds-col slds-size_1-of-2 slds-m-around_x-small">
-                    <input type="radio" id="radio-4" value="radio-4" name="default" />
-                    <label class="slds-radio__label" for="radio-4">
-                      <span class="slds-radio_faux"></span>
-                      <span class="slds-form-element__label">Answer Option Four</span>
-                    </label>
-                  </span>
-                </div>
-              </fieldset>
-            </div>
-        </article>
 
           <lightning:button class="slds-m-around_medium slds-p-vertical_xx-small slds-p-horizontal_medium"
             variant="success" 
             label="Submit Quiz" 
             title="Submit Quiz" 
-            onclick="{! c.submitQuiz }" />
+            onclick="{! v.submitQuiz }" />
 
 
           
