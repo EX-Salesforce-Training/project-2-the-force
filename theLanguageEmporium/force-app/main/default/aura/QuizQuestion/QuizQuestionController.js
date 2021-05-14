@@ -1,5 +1,5 @@
 ({
-    myAction : function(component, event, helper) {
-
+    initQuestion : function(component, event, helper) {
+        helper.scrambleAnswers(component);
     }
 })
