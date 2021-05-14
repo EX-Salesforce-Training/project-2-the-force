@@ -9,6 +9,8 @@
   <aura:attribute name="lessonDescription" type="String" default="This is an lesson about nouns"/>
   <aura:attribute name="quizGrade" type="integer" default="95"/>
   <aura:attribute name="getContent" type="Aura.Action"/>
+
+  <aura:registerEvent name="renderEvent" type="c:contentRender"/>
   
   <force:recordData aura:id = "contentRecord"
                     recordId = "{!v.recordId}"
@@ -16,7 +18,7 @@
                     layoutType="FULL"
   />
 
-  <article class="slds-card" onclick="{!v.getContent}">
+  <article class="slds-card" onclick="{!c.fireRenderEvent}">
     <div class="slds-card__header slds-grid">
         <header class="slds-media slds-media_center slds-has-flexi-truncate">
             <div class="slds-media__figure">

@@ -35,12 +35,6 @@
         $A.enqueueAction(lessonMethod);
         $A.enqueueAction(quizMethod);
     },
-    setQuiz : function(component, event, helper) {
-        
-    },
-    setLesson : function(component, event, helper) {
-        
-    },
     hideDisplay : function(component, event, helper) {
         var displayDiv = component.find("course-display");
         $A.util.addClass(displayDiv,"toggle-hide");
@@ -48,5 +42,25 @@
     showDisplay : function(component, event, helper) {
         var displayDiv = component.find("course-display");
         $A.util.removeClass(displayDiv,"toggle-hide");
+    },
+    renderQuizOrLesson : function(component, event, helper) {
+        var contentType = event.getParam("contentType")
+        var contentId = event.getParam("contentId")
+
+        this.hideDisplay(component);
+        component.set("v.activeContentId", contentId)
+
+        switch(contentType){
+            
+            case "Quiz":
+                console.log("You clicked on a Quiz")
+                component.set("v.activeQuiz", "true")
+                break;
+
+            case "Lesson":
+                console.log("You clicked on a Lesson")
+                component.set("v.activeLesson", "true")
+                break;
+        }
     },
 })

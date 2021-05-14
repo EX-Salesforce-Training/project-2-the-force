@@ -1,5 +1,5 @@
 ({
-    getThisContent : function(component, event, helper) {
-        helper.retrieveContent(component);
+    fireRenderEvent : function(component, event, helper) {
+        helper.getThisContent(component,event);
     }
 })

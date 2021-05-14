@@ -43,4 +43,8 @@
         //set active quiz to true
 
     },
+    startContent : function(component, event, helper){
+        helper.renderQuizOrLesson(component,event);
+        console.log("EventRecieved...");
+    },
 })
