@@ -5,6 +5,8 @@
     <aura:attribute name="courseID" type="ID"/>
     <aura:attribute name="Language" type="String"/>
     
+    <aura:registerEvent name="addToCart" type="c:addToCartEvent"/>
+
     <article class="slds-card">
         <div class="slds-grid slds-gutters">
             <div class="slds-col slds-size_2-of-3">
