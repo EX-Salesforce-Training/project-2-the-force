@@ -1,0 +1,20 @@
+<aura:component implements="force:hasRecordId" access="global">
+  <aura:attribute name="courseId" type="String" default="" />
+  <aura:attribute name="course" type="Object"/>
+
+  <aura:registerEvent name="renderCoursePage" type="c:courseRender"/>
+
+  <force:recordData aura:id = "courseRecord"
+  recordId = "{!v.courseId}"
+  targetFields="{!v.course}"
+  layoutType="FULL"
+/>
+<li class=" slds-text-heading_medium" onclick="{!c.fireCourseRender}">{!v.course.Name}
+    <!-- <div>
+          <h5 class="slds-text-body_large slds-align_absolute-center slds-m-around_medium">Check out your current progress!</h5>
+          <lightning:progressBar value="100" size="medium" />
+      </div> -->
+  </li>
+  <br/>
+      
+</aura:component>	
