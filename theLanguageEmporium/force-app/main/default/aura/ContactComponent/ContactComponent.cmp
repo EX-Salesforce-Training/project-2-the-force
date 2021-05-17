@@ -15,34 +15,14 @@
                       
     
   <aura:handler name="init" value="this" action="{!c.doInit}"/>
-    
-    <!-- A title that mentions the logged in user's name-->
-    <div>
-        <h5 class="slds-text-heading_large slds-align_absolute-center slds-m-around_medium"> Welcome {!v.ContactName}, to the Language Emporium </h5>
-    </div>
-    
+
+        <div>
+            <h5 class="slds-text-heading_large slds-align_absolute-center slds-m-around_medium"> Welcome {!v.ContactName}, to the Language Emporium </h5>
+        </div>
     
     <!-- Seperating an individual div to create the grid utilized by the navigation and contact information-->
     <div class="slds-grid slds-gutters">
-        <div class="slds-col slds-size_1-of-12">
-            
-            <!-- a vertical navigation bar capable of maneuvering through my individual components-->
-            <span> <div>
-                <lightning:card>
-                    <div class="slds-text-body_large slds-align_left slds-m-bottom_x-small">
-                        <lightning:verticalNavigation>
-                            <lightning:verticalNavigationSection label="Main Menu">
-                                <lightning:verticalNavigationItem label="Learner Portal" name="Info" />
-                                <lightning:verticalNavigationItem label="Store" name="Storeinfo" />
-                                <lightning:verticalNavigationItem label="Recruitment" name="Recruit" />
-                                <lightning:verticalNavigationItem label="Courses" name="Course" />
-                            </lightning:verticalNavigationSection>
-                        </lightning:verticalNavigation>
-                    </div>
-                </lightning:card>
-                </div></span>
-        </div>
-        <div class="slds-col_bump-left slds-size_11-of-12">
+        <div class="slds-col_bump-left slds-size_12-of-12">
             
             <!-- Contact information Component, allows the user to view (and edit?) their contact information -->
             <span> <div class="container slds-m-around_large" id="contactinfo">
@@ -78,4 +58,6 @@
                 </div></span>
         </div>
     </div>
+     
+    <c:CoursesEnrolled/>
 </aura:component>
