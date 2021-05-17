@@ -1,0 +1,17 @@
+<!--Component for each course that is inside the shopping cart-->
+<aura:component>
+    <aura:attribute name="courseName" type="String"/>
+    <aura:attribute name="courseID" type="ID"/>
+
+    <article class="slds-card">
+        <div class="slds-grid slds-grid_align-spread">
+            <div class="slds-col_bump-right slds-size_2-of-3 slds-m-left_small">{!v.courseName}
+            </div>
+            <div class="slds-col slds-size_1-of-6 slds-col">
+                <div class="container slds-m-around_xxx-small">
+                <button class="slds-button slds-button_destructive" onclick="{!c.removeCourseFromCart}">x</button>
+                </div>
+            </div>
+        </div>
+    </article>
+</aura:component>	
