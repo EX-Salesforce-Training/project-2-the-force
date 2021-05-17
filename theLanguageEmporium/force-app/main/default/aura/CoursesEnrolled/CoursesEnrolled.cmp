@@ -1,41 +1,35 @@
 <aura:component controller="ContactData" implements="forceCommunity:availableForAllPageTypes" access="global" >
-    <aura:attribute name="Courses" type="Course__c"/>
-    
+    <aura:attribute name="courseInactive" type="Boolean" default="True"/>
+    <aura:attribute name="courseActive" type="Boolean" default="False"/>
+    <aura:attribute name="activeCourse" type="id" default=""/>
+    <aura:attribute name="Contact" type="id" default="0035e000003psuJAAQ"/>
+    <aura:attribute name="Courses" type="Object[]"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.getCourses}"/>
+    <aura:handler name="renderCoursePage" event="c:courseRender" action="{!c.enterCourse}"/>
+
+    <aura:if isTrue="{!v.courseInactive}">
+        <div class="container slds-m-around_large" id="courses-enrolled">
+            <lightning:card footer="Thank you for choosing TheLanguageEmporium">
+                <div class="container slds-m-around_large" id="courses-enrolled">
+                    <h3  class="slds-text-heading_large slds-align_absolute-center slds-m-bottom_x-small">Currently Enrolled Courses</h3>
+                </div>
+                
+                <ul class="slds-p-horizontal_small">
+
+                    <aura:iteration items="{!v.Courses}" var="Course">
+                        <c:CourseCardComponent courseId="{!Course.Course__c}"/>
+                    </aura:iteration>
+
+
+                </ul>
+            </lightning:card>
+        </div>
+    </aura:if>
+
+    <aura:if isTrue="{!v.courseActive}">
+        <c:CoursePageComponent courseId="{!v.activeCourse}" />
+    </aura:if>
     <!-- a lightning card that allows the user to have a concentrated view of their enrolled courses-->
-    <div class="container slds-m-around_large" id="courses-enrolled">
-        <lightning:card footer="Thank you for choosing TheLanguageEmporium">
-            <div class="container slds-m-around_large" id="courses-enrolled">
-                <h3  class="slds-text-heading_large slds-align_absolute-center slds-m-bottom_x-small">Currently Enrolled Courses</h3>
-            </div>
-            
-            
-            <ul class="slds-p-horizontal_small">
-                <li class=" slds-text-heading_medium">German
-                    <div>
-                        <h5 class="slds-text-body_large slds-align_absolute-center slds-m-around_medium">Check out your current progress!</h5>
-                        <!-- Progress Bar Component-->
-                        <lightning:progressBar value="15" size="medium" />
-                    </div>
-                </li><br/>
-                <li class=" slds-text-heading_medium">French
-                    <div>
-                        <h5 class="slds-text-body_large slds-align_absolute-center slds-m-around_medium">Check out your current progress!</h5>
-                        <lightning:progressBar value="100" size="medium" />
-                    </div>
-                </li><br/>
-                <li class=" slds-text-heading_medium">
-                    <div>
-                        <h5 class="slds-text-body_large slds-align_absolute-center slds-m-around_medium">Check out your current progress!</h5>
-                        <lightning:progressBar value="50" size="medium" />
-                    </div>
-                </li ><br/>
-                <li class=" slds-text-heading_medium">Spanish
-                    <div>
-                        <h5 class="slds-text-body_large slds-align_absolute-center slds-m-around_medium">Check out your current progress!</h5>
-                        <lightning:progressBar value="40" size="medium" />
-                    </div>
-                </li><br/>
-            </ul>
-        </lightning:card>
-    </div>
+    
 </aura:component>
