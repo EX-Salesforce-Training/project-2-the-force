@@ -1,5 +1,5 @@
 ({
-    myAction : function(component, event, helper) {
-
+    compInit : function(component, event, helper) {
+     helper.initializeComp(component);
     }
 })

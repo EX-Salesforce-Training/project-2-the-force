@@ -1,10 +1,14 @@
-<aura:component>
+<aura:component controller="StorePageController" access="global">
+    <aura:attribute name="courseList" type="List"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.compInit}"/>
+    
     <div class="container slds-m-around_large">
         <h1 class="slds-text-heading_medium slds-m-bottom_x-small">Available Courses</h1>
         <div id="course-list" class="slds-box">
-            <c:CourseInAvailableCourses courseName="Intro to Spanish" />
-            <c:CourseInAvailableCourses courseName="Japanese II" />
-            <c:CourseInAvailableCourses courseName="Intro to French" />  
+            <aura:iteration items = "{!v.courseList}" var = "course">
+           <c:CourseInAvailableCourses courseName = "{!course.Name}" />
+            </aura:iteration>
         </div>
     </div>
-</aura:component>	
+</aura:component>

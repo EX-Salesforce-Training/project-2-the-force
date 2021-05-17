@@ -1,5 +1,7 @@
 <aura:component>
     <aura:attribute name="courseName" type="String"/>
+    <aura:attribute name="startDate" type="Date" default="2015-06-30"/>
+    
     <article class="slds-card">
         <div class="slds-grid slds-gutters">
             <div class="slds-col slds-size_2-of-3">
@@ -12,11 +14,11 @@
                         </div>
                     </header>
                 </div>
-                <div class="slds-card__body slds-card__body_inner">Other things about course</div>
+                <div class="slds-card__body slds-card__body_inner">Start Date: <lightning:formattedDateTime value="{!v.startDate}"/></div>
             </div>
             <div class="slds-col_bump-left slds-size_1-of-8 slds-align-bottom">
-				<button class="slds-m-left_small slds-m-bottom_xx-small slds-button slds-button_neutral">Add to Cart</button>
+				<button class="slds-m-left_small slds-m-bottom_xx-small slds-button slds-button_neutral" onclick="{!c.addCourseToCart}">Add to Cart</button>
             </div>
         </div>
     </article>
-</aura:component>	
+</aura:component>
