@@ -1,5 +1,5 @@
 ({
-    myAction : function(component, event, helper) {
-
+    addCourseToCart : function(component, event, helper) {
+        let courseId = component.get("v.courseId");
     }
 })

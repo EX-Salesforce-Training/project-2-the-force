@@ -1,3 +1,4 @@
+<!--Main Store component that contains the available courses and the shopping cart-->
 <aura:component>
     <h2 class="slds-align_absolute-center slds-m-around_medium slds-text-heading_large">Store</h2>   
     <div class="slds-grid slds-gutters">

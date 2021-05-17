@@ -1,5 +1,6 @@
+<!--Component that contains all available courses-->
 <aura:component controller="StorePageController" access="global">
-    <aura:attribute name="courseList" type="List"/>
+    <aura:attribute name="courseList" type="Object[]"/>
     
     <aura:handler name="init" value="{!this}" action="{!c.compInit}"/>
     
@@ -7,7 +8,7 @@
         <h1 class="slds-text-heading_medium slds-m-bottom_x-small">Available Courses</h1>
         <div id="course-list" class="slds-box">
             <aura:iteration items = "{!v.courseList}" var = "course">
-           <c:CourseInAvailableCourses courseName = "{!course.Name}" />
+           <c:CourseInAvailableCourses courseName = "{!course.Name}" startDate = "{!course.Start_Date__c}" Language="{!course.Language__c}" courseID = "{!course.ID}"/>
             </aura:iteration>
         </div>
     </div>
