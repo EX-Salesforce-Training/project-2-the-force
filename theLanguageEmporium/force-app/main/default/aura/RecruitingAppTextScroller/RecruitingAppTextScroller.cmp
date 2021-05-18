@@ -1,0 +1,18 @@
+<aura:component controller="RecruitingAppPositionsAPEX">
+    
+    <aura:handler name="init" value="{!this}" action="{!c.cOpenPositions}"/>
+    <aura:attribute name="positions" type="Position__c[]" default=""/>
+    
+    <div class="slds-text-heading_medium" style="font-weight:bold;text-decoration:underline;">Job Description:</div>
+    
+    <aura:iteration items="{!v.positions}" var="position">
+        
+        <ui:scrollerWrapper class="scrollerSize">
+            <ui:outputText value="{!position.Description__c}"/>	
+        </ui:scrollerWrapper>
+           
+    </aura:iteration>
+    
+    
+    
+</aura:component>

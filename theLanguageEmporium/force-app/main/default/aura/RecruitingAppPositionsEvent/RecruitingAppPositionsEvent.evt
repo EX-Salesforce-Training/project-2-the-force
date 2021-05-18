@@ -1,0 +1,4 @@
+<aura:event type="APPLICATION">
+    <aura:attribute name="ePositionsNext" type="boolean" default="true"/>  
+    <aura:attribute name="eSelectedPosition" type="Position__c"/>
+</aura:event>

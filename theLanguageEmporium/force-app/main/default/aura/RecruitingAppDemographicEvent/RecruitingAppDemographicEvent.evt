@@ -1,0 +1,3 @@
+<aura:event type="APPLICATION">
+    <aura:attribute name="eDemographicNext" type="boolean" default="true"/>
+</aura:event>

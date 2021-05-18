@@ -1,0 +1,3 @@
+<aura:event type="APPLICATION">
+    <aura:attribute name="eAddressInput" type="String"/>
+</aura:event>

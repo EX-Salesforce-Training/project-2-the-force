@@ -1,0 +1,60 @@
+<aura:component>
+    <aura:attribute name="renderAdditionalQuestions" type="boolean" default="true"/>
+    <aura:handler name="renderHandler" event="c:RecruitingAppExperienceInputEvent" action="{!c.cRenderAdditionalQuestions}"/>
+    <aura:handler name="renderHandlerPrevious" event="c:RecruitingAppDemographicEventPrevious" action="{!c.cRenderAdditionalQuestions}"/>
+    <aura:registerEvent name="questionsEventPrevious" type="c:RecruitingAppAdditionalQuestionsEventPrevious"/>
+    <aura:registerEvent name="questionsEventNext" type="c:RecruitingAppAdditionalQuestionsEvent"/>
+    
+    <aura:if isTrue="{!v.renderAdditionalQuestions}">
+    <lightning:card>
+        <div class="slds-grid slds-gutters">
+            <div class="slds-col">
+                <ui:outputTextArea aura:id="question1" value="Question 1 goes here?"/><br/><br/>
+                
+                <ui:inputTextArea aura:id="comments1" label="" placeholder="Enter your response..." rows="4"/><br/>        
+                <ui:button class="btn" label="Submit" press="{!c.cSetOutput1}"/>        
+                <div aura:id="msg1" class="hide">            
+                    Your response: <ui:outputTextArea aura:id="oTextarea1" value=""/>            
+                </div>
+                
+                <br/> <br/> 
+                
+                <ui:outputTextArea aura:id="question2" value="Question 2 goes here?"/><br/><br/>
+                
+                <ui:inputTextArea aura:id="comments2" label="" placeholder="Enter your response..." rows="4"/><br/>        
+                <ui:button class="btn" label="Submit" press="{!c.cSetOutput2}"/>        
+                <div aura:id="msg2" class="hide">            
+                    Your response: <ui:outputTextArea aura:id="oTextarea2" value=""/>            
+                </div>
+            </div>
+            <br/> <br/> 
+            <div class="slds-col">
+                <ui:outputTextArea aura:id="question3" value="Question 2 goes here?"/><br/><br/>
+                
+                <ui:inputTextArea aura:id="comments3" label="" placeholder="Enter your response..." rows="4"/><br/>        
+                <ui:button class="btn" label="Submit" press="{!c.cSetOutput3}"/>        
+                <div aura:id="msg3" class="hide">            
+                    Your response: <ui:outputTextArea aura:id="oTextarea3" value=""/>  
+                </div>
+                <br/> <br/>  
+                <br/> <br/>                  
+                <lightning:button label="Previous" onClick="{!c.cAdditionalQuestionsPrevious}"/>
+                <lightning:button label="Next" onClick="{!c.cAdditionalQuestionsNext}"/>
+            </div>
+            
+        </div>
+        
+    </lightning:card>
+    </aura:if>
+</aura:component>
+
+
+<!-- <aura:component >
+    <div class="slds-form-element">
+        <label class="slds-form-element__label" for="text-input-id-1">
+            <abbr class="slds-required" title="required">* </abbr>Question 1:</label>
+        <div class="slds-form-element__control">
+            <input type="text" id="text-input-id-1" placeholder="Enter your response..." class="slds-input" />
+        </div>
+    </div>
+</aura:component> -->

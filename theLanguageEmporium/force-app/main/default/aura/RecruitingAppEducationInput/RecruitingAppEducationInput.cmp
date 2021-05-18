@@ -1,0 +1,27 @@
+<aura:component>
+    <aura:attribute name="renderEducationInput" type="boolean" default="true"/>
+    <aura:handler name="renderHandler" event="c:RecruitingAppCandidateInputEvent" action="{!c.cRenderEducationInput}"/>
+    <aura:registerEvent name="educationEventPrevious" type="c:RecruitingAppEducationInputEventPrevious"/>
+    <aura:registerEvent name="educationEventNext" type="c:RecruitingAppEducationInputEvent"/>
+    
+    <aura:if isTrue="v.renderEducationInput">
+        <lightning:card>
+            <div class="slds-grid slds-gutters">
+                <lightning:recordEditForm objectApiName="Candidate_Education__c">
+                    <div class="slds-col">
+                        <span>
+                            <lightning:inputField fieldName="College/University" />
+                            <lightning:inputField fieldName="Degree Earned" />
+                            <lightning:inputField fieldName="Major" />
+                            <lightning:inputField fieldName="Graduated" />
+                            <lightning:inputField fieldName="Date Started" />
+                            <lightning:inputField fieldName="Graduation Date" />
+                            <lightning:button label="Previous" onClick="{!c.cEducationInputPrevious}"/>
+                            <lightning:button type="submit" label="Next" onClick="{!c.cEducationInputNext}"/>
+                        </span>
+                    </div>  
+                </lightning:recordEditForm>
+            </div>
+        </lightning:card>
+    </aura:if>
+</aura:component>

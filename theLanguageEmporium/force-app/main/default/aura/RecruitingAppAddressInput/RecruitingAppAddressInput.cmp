@@ -1,0 +1,39 @@
+<aura:component>
+
+	<aura:attribute name="addressInput" type="String"/>
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~State Dropdown~~~~~~~~~~~~~~~~~~ -->
+    <aura:attribute name="provinceOptions" type="List" default="[
+                                                                {'label': 'California', 'value': 'CA'},
+                                                                {'label': 'Texas', 'value': 'TX'},
+                                                                {'label': 'Washington', 'value': 'WA'},
+                                                                ]"/>
+    <!-- ~~~~~~~~~~~~~~~~~~~Country Dropdown~~~~~~~~~~~~~~~~~ -->
+    <aura:attribute name="countryOptions" type="List" default="[
+                                                               {'label': 'United States', 'value': 'US'},
+                                                               {'label': 'Japan', 'value': 'JP'},
+                                                               {'label': 'China', 'value': 'CN'},
+                                                               ]"/>
+    <aura:attribute name="previousCountry" type="String"/>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+    <div style="max-width: 400px;">
+        <lightning:inputAddress
+                                aura:id="myAddress"
+                                addressLabel="Please enter your address:"
+                                streetLabel="Street"
+                                cityLabel="City"
+                                countryLabel="Country"
+                                provinceLabel="Province/State"
+                                postalCodeLabel="PostalCode"
+                                street=""
+                                city=""
+                                country=""
+                                countryOptions="{! v.countryOptions }"
+            					provinceOptions="{! v.provinceOptions }"
+            					postalCode=""
+            					onchange="{! c.updateProvinces }"
+                                />
+       <!-- <lightning:button type="submit" name="Submit" label="submit" class="slds-m-top_medium" onclick="{!c.cHandleClick}"/> -->
+    </div>
+</aura:component>

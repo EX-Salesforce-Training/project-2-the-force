@@ -1,0 +1,32 @@
+({
+    hHandleClick : function(cmp, evt, hlp) {
+        var address = cmp.find("myAddress");
+        cmp.set("v.addressInput", address);   
+    },
+    
+    
+    countryProvinceMap: {
+        US: [
+            {'label': 'California', 'value': 'CA'},
+            {'label': 'Texas', 'value': 'TX'},
+            {'label': 'Washington', 'value': 'WA'}
+        ],
+        CN: [
+            {'label': 'GuangDong', 'value': 'GD'},
+            {'label': 'GuangXi', 'value': 'GX'},
+            {'label': 'Sichuan', 'value': 'SC'}
+        ],
+        VA: []
+    },
+    countryOptions: [
+        {'label': 'United States', 'value': 'US'},
+        {'label': 'China', 'value': 'CN'},
+        {'label': 'Vatican', 'value': 'VA'}
+    ],
+    getProvinceOptions: function(country) {
+        return this.countryProvinceMap[country];
+    },
+    getCountryOptions: function() {
+        return this.countryOptions;
+    }
+});

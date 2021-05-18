@@ -1,0 +1,28 @@
+<aura:component>
+    <aura:registerEvent name="vNameInputEvent" type="c:RecruitingAppNameInputEvent"/>
+    <aura:attribute name="nameInput" type="String"/>
+    <aura:attribute name="salutationOptions" type="List" default="[
+                                                                  {'label': 'Mr.', 'value': 'Mr.'},
+                                                                  {'label': 'Ms.', 'value': 'Ms.'},
+                                                                  {'label': 'Mrs.', 'value': 'Mrs.'},
+                                                                  {'label': 'Dr.', 'value': 'Dr.'},
+                                                                  {'label': 'Prof.', 'value': 'Prof.'},
+                                                                  ]"/>
+    <aura:attribute name="fields" type="List" default="['firstName', 'lastName', 'middleName', 'informalName', 'suffix', 'salutation']"/>
+    <div class="slds-size_1-of-2">    
+        <lightning:inputName
+                             aura:id="myName"
+                             label="Please enter your name:"
+                             firstName=""
+                             middleName=""
+                             lastName=""
+                             informalName=""
+                             suffix=""
+                             salutation=""
+                             required="true"
+                             options="{!v.salutationOptions}"
+                             fieldsToDisplay="{!v.fields}" 
+                             />
+       <!-- <lightning:button type="submit" name="Submit" label="submit" class="slds-m-top_medium" onclick="{!c.cHandleClick}"/> -->
+    </div>
+</aura:component>
