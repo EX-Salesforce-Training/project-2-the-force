@@ -4,7 +4,7 @@
     },
 
     enrollCourses : function(component, event, helper) {
-        helper.enrollCoursesH(component);
+        helper.submitCourses(component);
     },
     removeItemFromCart : function(component, event, helper){
         helper.dropCartItem(component, event);

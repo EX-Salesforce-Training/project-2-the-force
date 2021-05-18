@@ -9,12 +9,13 @@
         $A.enqueueAction(courseListMethod);
     },
 
-    enrollCoursesH: function(component) {
+    submitCourses: function(component) {
         let courseList = component.get("v.courseListSC");
         let method = component.get("c.createAndInsertOrders");
         method.setParams({courseList : courseList});
         method.setCallback(this, function(response){
             if(response.getState() === "SUCCESS"){
+                console.log("Orders Created")
             //success
             }
         });

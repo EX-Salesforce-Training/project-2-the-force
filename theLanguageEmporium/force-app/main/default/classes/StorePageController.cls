@@ -16,13 +16,19 @@ public class StorePageController {
 
     //Method to insert orders with the courses that were in the shopping cart.
     @AuraEnabled
-    public static void createAndInsertOrders(List<Course__c> courseList){
+    public static void createAndInsertOrders(List<Id> courseList){
+        
+        Id userId = UserInfo.getUserId();
+        Id currentUser = [SELECT ContactId FROM User WHERE Id = :userId LIMIT 1].contactId;
+        currentUser = '0035e000003ptF4AAI';
+
         try {
             List<Order> orders = new List<Order>();
-            for(Course__c crs: courseList){
+            for(Id course: courseList){
                 Order order = new order();
-                //order.Course__c = crs.id;
-                //order.Learner__c = crs.???
+                order.Course__c = course;
+                order.Learner__c = currentUser;
+                orders.add(order);
             }
             insert orders;
 
