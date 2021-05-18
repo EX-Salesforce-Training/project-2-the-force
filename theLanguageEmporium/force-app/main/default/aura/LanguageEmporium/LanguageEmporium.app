@@ -1,24 +1,26 @@
 <aura:application extends="force:slds">
-    <aura:attribute name="Home" type="boolean" default="False" />
-    <aura:attribute name="LearnerPortal" type="boolean" default="True"/>
+    <aura:attribute name="Home" type="boolean" default="True" />
+    <aura:attribute name="LearnerPortal" type="boolean" default="False"/>
     <aura:attribute name="Shop" type="boolean" default="False"/>
     <aura:attribute name="Careers" type="boolean" default="False"/>
 
+    <aura:handler name="navEvent" event="c:navBarEvent" action="{!c.navigate}"/> 
+
     <c:NavbarComponent/>
 
-    <aura:if isTrue="{!v.Home}">
-        <h1>If we had a home page it would go here</h1>
-    </aura:if>
+    <aura:renderIf isTrue="{!v.Home}">
+        <h1>renderIf we had a home page it would go here</h1>
+    </aura:renderIf>
 
-    <aura:if isTrue="{!v.LearnerPortal}">
+    <aura:renderIf isTrue="{!v.LearnerPortal}">
         <c:ContactComponent/>
-    </aura:if>
+    </aura:renderIf>
 
-    <aura:if isTrue="{!v.Shop}">
-        Abdulloh's Page would be here
-    </aura:if>
+    <aura:renderIf isTrue="{!v.Shop}">
+        <c:StoreMainComponent/>
+    </aura:renderIf>
 
-    <aura:if isTrue="{!v.Careers}">
+    <aura:renderIf isTrue="{!v.Careers}">
         Dom's page would be here
-    </aura:if>
+    </aura:renderIf>
 </aura:application>
