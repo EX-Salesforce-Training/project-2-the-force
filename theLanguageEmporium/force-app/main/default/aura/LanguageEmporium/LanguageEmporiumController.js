@@ -1,29 +1,36 @@
 ({
 	navigate : function(component, event, helper) {
-		component.set("v.Shop","False");
-		component.set("v.Home","False");
-		component.set("v.LearnerPortal","False");
-		component.set("v.Careers","False");
+		var divList = [
+			component.find("Shop"),
+			component.find("Home"),
+			component.find("Account"),
+			component.find("Careers")
+		];
+
+		for(let i=0; i<divList.length; i++){
+			let displayDiv = divList[i];
+			$A.util.addClass(displayDiv,"toggle-hide");
+		};
 
 		var navTo = event.getParam("page");
 		console.log("Event Recieved")
 
 		switch (navTo){
 			case "Shop":
-				console.log("Nav Shop")
-				component.set("v.Shop","True");
+				var displayDiv = component.find("Shop");
+				$A.util.removeClass(displayDiv,"toggle-hide");
 				break;
 			case "Home":
-				console.log("Nav Home")
-				component.set("v.Home","True");
+				var displayDiv = component.find("Home");
+				$A.util.removeClass(displayDiv,"toggle-hide");
 				break;
 			case "LearnerPortal":
-				console.log("Nav portal")
-				component.set("v.LearnerPortal","True");
+				var displayDiv = component.find("Account");
+				$A.util.removeClass(displayDiv,"toggle-hide");
 				break;
 			case "Careers":
-				console.log("Nav Carreer")
-				component.set("v.Careers","True");
+				var displayDiv = component.find("Careers");
+				$A.util.removeClass(displayDiv,"toggle-hide");
 				break;
 
 		}
