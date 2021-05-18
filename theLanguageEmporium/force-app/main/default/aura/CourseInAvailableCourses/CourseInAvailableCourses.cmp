@@ -1,5 +1,5 @@
 <!--Component for each individual Course that is displayed in the available courses-->
-<aura:component>
+<aura:component implements="forceCommunity:availableForAllPageTypes">
     <aura:attribute name="courseName" type="String"/>
     <aura:attribute name="startDate" type="Date"/>
     <aura:attribute name="courseID" type="ID"/>
@@ -13,7 +13,7 @@
                 <div class="slds-card__header slds-grid">
                     <header class="slds-media slds-media_center slds-has-flexi-truncate">
                         <div class="slds-media__figure">
-                            <div class="slds-card__header-title" style="font-size:large">
+                            <div class="slds-card__header-title" style="font-size:x-large">
                                 <span>{!v.courseName}</span>
                             </div>
                         </div>
@@ -23,7 +23,7 @@
                 <div class="slds-card__body slds-card__body_inner">Language: {!v.Language}</div>
             </div>
             <div class="slds-col_bump-left slds-size_1-of-8 slds-align-bottom">
-				<button class="slds-m-left_small slds-m-bottom_xx-small slds-button slds-button_neutral" onclick="{!c.addCourseToCart}">Add to Cart</button>
+				<button class="slds-button slds-button_neutral" onclick="{!c.addCourseToCart}">Add to Cart</button>
             </div>
         </div>
     </article>
