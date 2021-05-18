@@ -3,6 +3,7 @@
         let method = component.get("c.openPositions");
         method.setCallback(this, function(response){
             if(response.getState() == "SUCCESS"){
+                console.log("Success get")
                 component.set("v.positions", response.getReturnValue());          
             }})
         $A.enqueueAction(method);   
@@ -10,7 +11,8 @@
 
     hOnChange : function(cmp, evt, hlp) {
         let hSelectedPosition = cmp.find("positionSelect").get("v.value");
-        cmp.set("v.selectedPosition", hSelectedPosition);
+        console.log(cmp.find("positionSelect").get("v.value"));
+        cmp.set("v.selectedPositionDesc", hSelectedPosition);
     },
     
     hPositionsNext : function(cmp, evt, hlp) {
