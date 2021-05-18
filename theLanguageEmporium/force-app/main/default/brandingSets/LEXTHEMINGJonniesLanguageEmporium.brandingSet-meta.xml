@@ -18,7 +18,7 @@
     </brandingSetProperty>
     <brandingSetProperty>
         <propertyName>BANNER_IMAGE</propertyName>
-        <propertyValue/>
+        <propertyValue></propertyValue>
     </brandingSetProperty>
     <brandingSetProperty>
         <propertyName>GROUPS_BANNER_IMAGE</propertyName>
@@ -26,7 +26,7 @@
     </brandingSetProperty>
     <brandingSetProperty>
         <propertyName>GROUP_IMAGE</propertyName>
-        <propertyValue/>
+        <propertyValue></propertyValue>
     </brandingSetProperty>
     <brandingSetProperty>
         <propertyName>PROFILE_BANNER_IMAGE</propertyName>
