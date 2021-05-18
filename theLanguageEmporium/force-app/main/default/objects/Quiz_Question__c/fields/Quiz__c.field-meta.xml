@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>Learner__c</fullName>
+    <fullName>Quiz__c</fullName>
     <externalId>false</externalId>
-    <label>Learner</label>
-    <referenceTo>Contact</referenceTo>
-    <relationshipLabel>Learner Access</relationshipLabel>
-    <relationshipName>Learner_Access</relationshipName>
-    <relationshipOrder>1</relationshipOrder>
+    <label>Quiz</label>
+    <referenceTo>Quiz__c</referenceTo>
+    <relationshipLabel>Quiz Questions</relationshipLabel>
+    <relationshipName>Quiz_Questions</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
     <reparentableMasterDetail>false</reparentableMasterDetail>
-    <trackHistory>false</trackHistory>
     <trackTrending>false</trackTrending>
     <type>MasterDetail</type>
     <writeRequiresMasterRead>false</writeRequiresMasterRead>
