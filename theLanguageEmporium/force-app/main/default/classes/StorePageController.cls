@@ -19,15 +19,23 @@ public class StorePageController {
     public static void createAndInsertOrders(List<Id> courseList){
         
         Id userId = UserInfo.getUserId();
-        Id currentUser = [SELECT ContactId FROM User WHERE Id = :userId LIMIT 1].contactId;
-        currentUser = '0035e000003ptF4AAI';
+        Id currentUserContact = [SELECT ContactId FROM User WHERE Id = :userId LIMIT 1].contactId;
+        Id currentUserAccount = [SELECT AccountId FROM User WHERE id=:userId LIMIT 1].accountId;
+        //hard coding for now
+        currentUserContact = '0035e000002Akl7AAC';
+        currentUserAccount = '0015e000006G5ivAAC';
+        Id contractId = '8005e000000x84RAAQ';
 
         try {
             List<Order> orders = new List<Order>();
             for(Id course: courseList){
                 Order order = new order();
                 order.Course__c = course;
-                order.Learner__c = currentUser;
+                order.Learner__c = currentUserContact;
+                order.AccountId = currentUserAccount;
+                order.EffectiveDate = Date.today();
+                order.Status = 'Draft';
+                order.contractId = contractId;
                 orders.add(order);
             }
             insert orders;
