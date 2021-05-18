@@ -14,6 +14,7 @@
                     
 
 <aura:handler name="init" value="this" action="{!c.doInit}"/>
+<aura:handler name="hideAccountInfo" event="c:hideAccountevent" action="{!c.hideInfo}"/>
 
 <!-- A title that mentions the logged in user's name-->
 <div>
@@ -22,16 +23,13 @@
 
 
 <!-- Seperating an individual div to create the grid utilized by the navigation and contact information-->
-<div class="slds-grid slds-gutters">
+<div class="slds-grid slds-gutters" aura:id="account-info">
     <div class="slds-col slds-size_11-of-12">
         
         <!-- Contact information Component, allows the user to view their contact information -->
         <span> <div class="container slds-m-around_large" id="contactinfo">
             <lightning:card title="{!v.userInfo.FirstName}" iconName="standard:contact">
                 <div class="slds-grid">
-            
-
-                    
                     <ul>    
                         <li class=" slds-text-heading_medium slds-col slds-size_12-of-12"> Learner's Name : {!v.userInfo.LastName}, {!v.userInfo.FirstName} </li><br/>
                         <li class=" slds-text-heading_medium slds-col slds-size_12-of-12"> Learner's Phone Number : {!v.userInfo.Phone} </li><br/>
@@ -43,4 +41,5 @@
             </div></span>
     </div>
 </div>
+
 </aura:component>

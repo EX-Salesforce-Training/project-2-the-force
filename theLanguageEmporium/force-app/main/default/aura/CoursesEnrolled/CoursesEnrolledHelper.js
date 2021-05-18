@@ -20,11 +20,15 @@
 	renderCoursePage : function(component,event){
 		var courseId = event.getParam("courseId");
 		component.set("v.activeCourse", courseId);
-		
 		component.set("v.courseActive", "True");
-		console.log(component.get("v.courseActive"))
-		component.set("v.courseInactive", "False");
-		console.log(component.get("v.courseInactive"))
 
+		this.hideCourseList(component);
+		
+		
+	},
+	hideCourseList : function(component){
+		console.log("attempting to hide course list")
+		var displayDiv = component.find("course-list");
+		$A.util.addClass(displayDiv,"toggle-hide");
 	}
 })

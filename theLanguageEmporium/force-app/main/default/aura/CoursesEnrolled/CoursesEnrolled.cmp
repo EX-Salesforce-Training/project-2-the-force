@@ -8,8 +8,7 @@
     <aura:handler name="init" value="{!this}" action="{!c.getCourses}"/>
     <aura:handler name="renderCoursePage" event="c:courseRender" action="{!c.enterCourse}"/>
 
-    <aura:if isTrue="{!v.courseInactive}">
-        <div class="container slds-m-around_large" id="courses-enrolled">
+        <div class="container slds-m-around_large" aura:id="course-list">
             <lightning:card footer="Thank you for choosing TheLanguageEmporium">
                 <div class="container slds-m-around_large" id="courses-enrolled">
                     <h3  class="slds-text-heading_large slds-align_absolute-center slds-m-bottom_x-small">Currently Enrolled Courses</h3>
@@ -25,7 +24,6 @@
                 </ul>
             </lightning:card>
         </div>
-    </aura:if>
 
     <aura:if isTrue="{!v.courseActive}">
         <c:CoursePageComponent courseId="{!v.activeCourse}" />
