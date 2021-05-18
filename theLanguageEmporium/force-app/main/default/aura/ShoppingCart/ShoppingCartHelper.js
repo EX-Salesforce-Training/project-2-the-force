@@ -10,6 +10,7 @@
     },
 
     submitCourses: function(component) {
+        alert("Order submitted");
         let courseList = component.get("v.courseListSC");
         let method = component.get("c.createAndInsertOrders");
         method.setParams({courseList : courseList});

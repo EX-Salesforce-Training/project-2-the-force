@@ -21,10 +21,11 @@ public class StorePageController {
         Id userId = UserInfo.getUserId();
         Id currentUserContact = [SELECT ContactId FROM User WHERE Id = :userId LIMIT 1].contactId;
         Id currentUserAccount = [SELECT AccountId FROM User WHERE id=:userId LIMIT 1].accountId;
+        Id contractId = [SELECT ID FROM Contract LIMIT 1].ID;
         //hard coding for now
         currentUserContact = '0035e000002Akl7AAC';
         currentUserAccount = '0015e000006G5ivAAC';
-        Id contractId = '8005e000000x84RAAQ';
+        //Id contractId = '8005e000000x84RAAQ';
 
         try {
             List<Order> orders = new List<Order>();
