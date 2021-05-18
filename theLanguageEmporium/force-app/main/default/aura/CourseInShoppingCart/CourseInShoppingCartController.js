@@ -1,6 +1,6 @@
 ({
     removeCourseFromCart : function(component, event, helper) {
-     let courseID = component.get("v.courseID");
+        helper.fireRemoveEvent(component,event)
 
     }
 })

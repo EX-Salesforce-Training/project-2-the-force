@@ -3,6 +3,8 @@
     <aura:attribute name="courseID" type="Id"/>
     <aura:attribute name="fields" type="Object" />
 
+    <aura:registerEvent name="removeFromCartEvent" type="c:removeFromCart"/>
+
     <force:recordData aura:id = "contentRecord"
                     recordId = "{!v.courseID}"
                     targetFields="{!v.fields}"
