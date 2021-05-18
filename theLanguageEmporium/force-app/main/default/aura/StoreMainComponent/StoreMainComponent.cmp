@@ -1,5 +1,5 @@
 <!--Main Store component that contains the available courses and the shopping cart-->
-<aura:component>
+<aura:component implements="forceCommunity:availableForAllPageTypes">
     <aura:attribute name="shoppingCartItems" type="Id[]"/>
     
     <aura:handler name="addToCart" event="c:addToCartEvent" action="{!c.updateCart}"/>

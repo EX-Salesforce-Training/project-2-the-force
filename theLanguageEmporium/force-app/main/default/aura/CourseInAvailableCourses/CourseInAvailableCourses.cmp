@@ -1,5 +1,5 @@
 <!--Component for each individual Course that is displayed in the available courses-->
-<aura:component>
+<aura:component implements="forceCommunity:availableForAllPageTypes">
     <aura:attribute name="courseName" type="String"/>
     <aura:attribute name="startDate" type="Date"/>
     <aura:attribute name="courseID" type="ID"/>

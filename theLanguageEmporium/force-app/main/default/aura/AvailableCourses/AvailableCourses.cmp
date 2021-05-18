@@ -1,5 +1,5 @@
 <!--Component that contains all available courses-->
-<aura:component controller="StorePageController" access="global">
+<aura:component controller="StorePageController" access="global" implements="forceCommunity:availableForAllPageTypes">
     <aura:attribute name="courseList" type="Object[]"/>
     
     <aura:handler name="init" value="{!this}" action="{!c.compInit}"/>
