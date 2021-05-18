@@ -1,63 +1,46 @@
 <aura:component controller="ContactData" implements="forceCommunity:availableForAllPageTypes,force:hasRecordId" access="global" >
-    <aura:attribute name="ContactName" type="String" default="Bob"/>
-    
-    <!-- creating an attribute that refers to the recordID-->
-    <aura:attribute name="recordId" type="Id" />
-    
-    <!-- creating an attribute that refers to the conlist-->
- 	<aura:attribute name="userInfo" type="user"/>
-    <aura:attribute name="fields" type="Object" />
-    <aura:attribute name="LearnerName" type="String" />
-    
-    <force:recordData aura:id="contactRecord"
-                      recordId="{!v.ContactId}"
-                      targetFields="{!v.Contact}" />
-                      
-    
-  <aura:handler name="init" value="this" action="{!c.doInit}"/>
 
-        <div>
-            <h5 class="slds-text-heading_large slds-align_absolute-center slds-m-around_medium"> Welcome {!v.ContactName}, to the Language Emporium </h5>
-        </div>
-    
-    <!-- Seperating an individual div to create the grid utilized by the navigation and contact information-->
-    <div class="slds-grid slds-gutters">
-        <div class="slds-col_bump-left slds-size_12-of-12">
+<!-- creating an attribute that refers to the recordID-->
+<aura:attribute name="recordId" type="Id" />
+
+<!-- creating an attribute that refers to the conlist-->
+<aura:attribute name="userInfo" type="user"/>
+<aura:attribute name="fields" type="Object" />
+<aura:attribute name="LearnerName" type="String" />
+
+<force:recordData aura:id="contactRecord"
+                    recordId="{!v.ContactId}"
+                    targetFields="{!v.Contact}" />
+                    
+
+<aura:handler name="init" value="this" action="{!c.doInit}"/>
+
+<!-- A title that mentions the logged in user's name-->
+<div>
+    <h5 class="slds-text-heading_large slds-align_absolute-center slds-m-around_medium"> Welcome {!v.userInfo.FirstName}, to the Language Emporium </h5>
+</div>
+
+
+<!-- Seperating an individual div to create the grid utilized by the navigation and contact information-->
+<div class="slds-grid slds-gutters">
+    <div class="slds-col slds-size_11-of-12">
+        
+        <!-- Contact information Component, allows the user to view their contact information -->
+        <span> <div class="container slds-m-around_large" id="contactinfo">
+            <lightning:card title="{!v.userInfo.FirstName}" iconName="standard:contact">
+                <div class="slds-grid">
             
-            <!-- Contact information Component, allows the user to view (and edit?) their contact information -->
-            <span> <div class="container slds-m-around_large" id="contactinfo">
-                <lightning:card title="{!v.Contact}" iconName="standard:contact">
-                    <div class="slds-grid">
-                        
-                 <aura:iteration items="{!v.ContactList}" var="con">
-                            Contact Name = {!con.Name} <br/>
-                            </aura:iteration>
-             
-    
-                        
-                        <ul>    
-                            <li class=" slds-text-heading_medium slds-col_bump-left slds-size_11-of-12"> Learner's Name : {!v.userInfo.FirstName} </li><br/>
-                            <li class=" slds-text-heading_medium slds-col_bump-left slds-size_11-of-12"> Learner's Phone Number : {!v.userInfo.Phone} </li><br/>
-                            <li class=" slds-text-heading_medium slds-col_bump-left slds-size_11-of-12"> Learner's Email : {!v.userInfo.Email} </li><br/>
-                            <li class=" slds-text-heading_medium slds-col_bump-left slds-size_11-of-12"> Learner's Country : {!v.userInfo.Country} </li><br/>
-                        </ul>
-                    </div>
+
                     
-               
-                    
-                    <!-- creating the buttons that allow the user to edit/save their contact information as well as redirect them to the enrolled courses component-->
-                    <aura:set attribute="actions">
-                        <div class="slds-align_absolute-center">
-                            <lightning:buttonGroup>
-                                <lightning:button label="View Enrolled Courses" />
-                                <lightning:button label="Save" />
-                            </lightning:buttonGroup>
-                        </div>
-                    </aura:set> 
-                </lightning:card>
-                </div></span>
-        </div>
+                    <ul>    
+                        <li class=" slds-text-heading_medium slds-col slds-size_12-of-12"> Learner's Name : {!v.userInfo.LastName}, {!v.userInfo.FirstName} </li><br/>
+                        <li class=" slds-text-heading_medium slds-col slds-size_12-of-12"> Learner's Phone Number : {!v.userInfo.Phone} </li><br/>
+                        <li class=" slds-text-heading_medium slds-col slds-size_12-of-12"> Learner's Email : {!v.userInfo.Email}    </li><br/>
+                        <li class=" slds-text-heading_medium slds-col slds-size_12-of-12"> Learner's Country : {!v.userInfo.Country} </li><br/>
+                    </ul>
+                </div>
+            </lightning:card>
+            </div></span>
     </div>
-     
-    <c:CoursesEnrolled/>
+</div>
 </aura:component>
