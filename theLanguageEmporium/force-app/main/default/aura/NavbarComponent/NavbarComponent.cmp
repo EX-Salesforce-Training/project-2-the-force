@@ -29,24 +29,24 @@
     <nav class="slds-context-bar__secondary" role="navigation">
       <ul class="slds-grid">
         <li class="slds-context-bar__item slds-is-active">
-          <a href="#" class="slds-context-bar__label-action" title="Home" onclick="{!c.navHome}">
+          <a class="slds-context-bar__label-action" title="Home" onclick="{!c.navHome}">
             <span class="slds-assistive-text">Current Page:</span>
             <span class="slds-truncate" title="Home">Home</span>
           </a>
         </li>
 
         <li class="slds-context-bar__item">
-          <a href="#" class="slds-context-bar__label-action" title="Menu Item" onclick="{!c.navAccount}">
+          <a class="slds-context-bar__label-action" title="Menu Item" onclick="{!c.navAccount}">
             <span class="slds-truncate" title="Menu Item">Learner Portal</span>
           </a>
         </li>
         <li class="slds-context-bar__item">
-          <a href="#" class="slds-context-bar__label-action" title="Menu Item" onclick="{!c.navShop}">
+          <a class="slds-context-bar__label-action" title="Menu Item" onclick="{!c.navShop}">
             <span class="slds-truncate" title="Menu Item">Shop</span>
           </a>
         </li>
         <li class="slds-context-bar__item">
-          <a href="#" class="slds-context-bar__label-action" title="Menu Item" onclick="{!c.navCareers}">
+          <a class="slds-context-bar__label-action" title="Menu Item" onclick="{!c.navCareers}">
             <span class="slds-truncate" title="Menu Item">Careers</span>
           </a>
         </li>
