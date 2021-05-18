@@ -1,0 +1,23 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global" >
+<aura:attribute name="Contact" type="String" default="Bob"/>
+<!-- Recomended Courses Component-->
+<div class="c-container">
+    <div>
+        <h5 class="slds-text-heading_large slds-align_absolute-center slds-m-around_medium"> {!v.Contact}, go above and beyond in your education with these recomended courses </h5>
+    </div>
+    <lightning:layout>
+        <lightning:layoutItem flexibility="auto" padding="around-small">
+            <div class="slds-box slds-align_absolute-center">German300</div>
+        </lightning:layoutItem>
+        <lightning:layoutItem flexibility="auto" padding="around-small">
+            <div class="slds-box slds-align_absolute-center">French101</div>
+        </lightning:layoutItem>
+        <lightning:layoutItem flexibility="auto" padding="around-small">
+            <div class="slds-box slds-align_absolute-center">Spanish200</div>
+        </lightning:layoutItem>
+        <lightning:layoutItem flexibility="auto" padding="around-small">
+            <div class="slds-box slds-align_absolute-center">Italian000</div>
+        </lightning:layoutItem>
+    </lightning:layout>
+</div>
+</aura:component>
