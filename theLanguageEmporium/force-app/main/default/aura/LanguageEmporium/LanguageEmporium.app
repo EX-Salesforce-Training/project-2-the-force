@@ -1,26 +1,24 @@
 <aura:application extends="force:slds">
-    <aura:attribute name="Home" type="boolean" default="True" />
-    <aura:attribute name="LearnerPortal" type="boolean" default="False"/>
-    <aura:attribute name="Shop" type="boolean" default="False"/>
-    <aura:attribute name="Careers" type="boolean" default="False"/>
-
+    
     <aura:handler name="navEvent" event="c:navBarEvent" action="{!c.navigate}"/> 
 
+    <!-- Persistent navbar that handles hidden class -->
     <c:NavbarComponent/>
 
-    <aura:renderIf isTrue="{!v.Home}">
+    <div aura:id="Home">
         <h1>renderIf we had a home page it would go here</h1>
-    </aura:renderIf>
+    </div>
 
-    <aura:renderIf isTrue="{!v.LearnerPortal}">
+    <div aura:id="Account" class="toggle-hide">
         <c:ContactComponent/>
-    </aura:renderIf>
+    </div>
 
-    <aura:renderIf isTrue="{!v.Shop}">
+    <div aura:id="Shop" class="toggle-hide">
         <c:StoreMainComponent/>
-    </aura:renderIf>
+    </div>
 
-    <aura:renderIf isTrue="{!v.Careers}">
+    <div aura:id="Careers" class="toggle-hide">
         Dom's page would be here
-    </aura:renderIf>
+    </div>
+
 </aura:application>
