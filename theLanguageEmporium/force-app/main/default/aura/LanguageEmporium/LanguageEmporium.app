@@ -11,6 +11,7 @@
 
     <div aura:id="Account" class="toggle-hide">
         <c:ContactComponent/>
+        <c:CoursesEnrolled/>
     </div>
 
     <div aura:id="Shop" class="toggle-hide">

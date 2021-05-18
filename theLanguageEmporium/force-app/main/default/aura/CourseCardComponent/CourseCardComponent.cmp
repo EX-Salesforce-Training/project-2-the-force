@@ -3,6 +3,7 @@
   <aura:attribute name="course" type="Object"/>
 
   <aura:registerEvent name="renderCoursePage" type="c:courseRender"/>
+  <aura:registerEvent name="hideAccountInfo" type="c:hideAccountEvent"/>
 
   <force:recordData aura:id = "courseRecord"
   recordId = "{!v.courseId}"

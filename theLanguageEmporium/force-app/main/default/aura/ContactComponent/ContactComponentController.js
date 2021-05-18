@@ -7,8 +7,13 @@
                 var storeResponse = response.getReturnValue();
                // set current user information on userInfo attribute
                 component.set("v.userInfo", storeResponse);
-            }
+            } 
         });
         $A.enqueueAction(action);
+    },
+    hideInfo : function(component, event, helper){
+        console.log("Hidding account info")
+        var displayDiv = component.find("account-info");
+		$A.util.removeClass(displayDiv,"toggle-hide");
     }
 })
