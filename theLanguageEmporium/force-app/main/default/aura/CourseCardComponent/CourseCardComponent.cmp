@@ -1,4 +1,4 @@
-<aura:component implements="force:hasRecordId" access="global">
+<aura:component implements="forceCommunity:availableForAllPageTypes, force:hasRecordId" access="global">
   <aura:attribute name="courseId" type="String" default="" />
   <aura:attribute name="course" type="Object"/>
 

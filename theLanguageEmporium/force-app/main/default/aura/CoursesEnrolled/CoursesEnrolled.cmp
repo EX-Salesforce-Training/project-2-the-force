@@ -2,7 +2,7 @@
     <aura:attribute name="courseInactive" type="Boolean" default="True"/>
     <aura:attribute name="courseActive" type="Boolean" default="False"/>
     <aura:attribute name="activeCourse" type="id" default=""/>
-    <aura:attribute name="Contact" type="id" default="0035e000003psuJAAQ"/>
+    <aura:attribute name="Contact" type="id" default="0035e000003J6QmAAK"/>
     <aura:attribute name="Courses" type="Object[]"/>
 
     <aura:handler name="init" value="{!this}" action="{!c.getCourses}"/>
