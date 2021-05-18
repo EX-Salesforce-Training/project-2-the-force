@@ -160,7 +160,7 @@
         <type>Text</type>
     </nameField>
     <pluralLabel>Course Developers</pluralLabel>
-    <searchLayouts/>
+    <searchLayouts></searchLayouts>
     <sharingModel>Read</sharingModel>
     <visibility>Public</visibility>
 </CustomObject>

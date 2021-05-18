@@ -146,21 +146,20 @@
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
     <enableFeeds>false</enableFeeds>
-    <enableHistory>true</enableHistory>
+    <enableHistory>false</enableHistory>
     <enableLicensing>false</enableLicensing>
-    <enableReports>true</enableReports>
-    <enableSearch>true</enableSearch>
+    <enableReports>false</enableReports>
+    <enableSearch>false</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ControlledByParent</externalSharingModel>
-    <label>Line Item</label>
+    <label>Quiz Question</label>
     <nameField>
-        <displayFormat>LinItID-{0000}</displayFormat>
-        <label>Line Item ID</label>
-        <trackHistory>false</trackHistory>
+        <displayFormat>Q-{000000}</displayFormat>
+        <label>Quiz Question Name</label>
         <type>AutoNumber</type>
     </nameField>
-    <pluralLabel>Line Items</pluralLabel>
+    <pluralLabel>Quiz Questions</pluralLabel>
     <searchLayouts></searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
     <visibility>Public</visibility>
