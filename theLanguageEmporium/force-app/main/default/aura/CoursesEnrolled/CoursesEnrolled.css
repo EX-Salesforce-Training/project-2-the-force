@@ -1,3 +1,16 @@
 .THIS.toggle-hide {
   display: none;
 }
+
+.THIS {
+  color:#160422;
+}
+
+.THIS .slds-card{
+  background: #ffd8fa!important;
+  opacity: 0.9;
+}
+
+.THIS .slds-box{
+  background: #5D4B6F!important;
+}
