@@ -1,7 +1,6 @@
 <!--Component for each course that is inside the shopping cart-->
 <aura:component>
-    <aura:attribute name="courseName" type="String"/>
-    <aura:attribute name="courseID" type="ID"/>
+    <aura:attribute name="courseID" type="Id"/>
 
     <article class="slds-card">
         <div class="slds-grid slds-grid_align-spread">
