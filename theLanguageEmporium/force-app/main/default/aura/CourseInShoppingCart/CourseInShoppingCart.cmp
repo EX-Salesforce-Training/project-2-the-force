@@ -1,5 +1,5 @@
 <!--Component for each course that is inside the shopping cart-->
-<aura:component implements="force:hasRecordId" access="global" implements="forceCommunity:availableForAllPageTypes">
+<aura:component implements="force:hasRecordId, forceCommunity:availableForAllPageTypes" access="global">
     <aura:attribute name="courseID" type="Id"/>
     <aura:attribute name="fields" type="Object" />
 
