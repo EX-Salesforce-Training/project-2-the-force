@@ -1,5 +1,40 @@
 <aura:component>
-    <lightning:card>
+    
+    <aura:handler name="renderHandler" event="c:RecruitingAppAdditionalQuestionsEvent" action="{!c.cRenderDemographic}"/>
+    <aura:handler name="renderHandlerPrevious" event="c:RecruitingAppThanksEventPrevious" action="{!c.cRenderDemographic}"/>
+    <aura:registerEvent name="demographicEventPrevious" type="c:RecruitingAppDemographicEventPrevious"/>
+    <aura:registerEvent name="demographicEventNext" type="c:RecruitingAppDemographicEvent"/>
+    
+    <div class="toggle-hide" aura:id="renderDemographic">
+        <lightning:card>
+            <lightning:recordEditForm objectApiName="Position_Demographic__c">
+                <div class="slds-col">
+                    <span>
+                        <lightning:inputField fieldName="Candidate__c"/>
+                        <lightning:inputField fieldName="Gender__c"/>
+                        <lightning:inputField fieldName="Ethnicity__c"/>
+                        <lightning:inputField fieldName="Veteran_Status__c"/>
+                        <lightning:inputField fieldName="Disability__c"/>
+                        <lightning:button label="Previous" onClick="{!c.cDemographicPrevious}"/>
+                        <lightning:button type="submit" label="Next" onClick="{!c.cDemographicNext}"/>
+                    </span>
+                </div>  
+            </lightning:recordEditForm>
+        </lightning:card>    
+    </div>
+</aura:component>
+
+
+
+
+
+
+
+
+
+
+
+<!--     
         <div class="slds-grid slds-gutters">
             <div class="slds-col slds-size_12-of-12">
                 <div class="slds-col slds-size_6-of-12">
@@ -43,11 +78,29 @@
                     <option value="I do not wish to answer" text="I do not wish to answer"/>
                 </lightning:select>
             </div>
-        </div>
-    </lightning:card>     
-</aura:component>
+        </div>        
+        
 
-<!--     <lightning:card>
+
+
+
+
+
+
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+
+
+
+
+
+
+<lightning:card>
     <aura:attribute name="Gender" type="List" default="[
                                                        {'label': 'Male', 'value': 'Male'},
                                                        {'label': 'Female', 'value': 'Female'},

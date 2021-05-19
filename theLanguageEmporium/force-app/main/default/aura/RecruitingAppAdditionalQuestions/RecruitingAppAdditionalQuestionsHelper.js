@@ -24,23 +24,24 @@
     },
     
     hAdditionalQuestionsPrevious: function (cmp, evt, hlp){
-        cmp.find("renderAdditionalQuestions").set("false");
+        var hideThisDiv = cmp.find("renderAdditionalQuestions");
+        $A.util.addClass(hideThisDiv,"toggle-hide");
         var event = $A.get("e.c:RecruitingAppAdditionalQuestionsEventPrevious");
         event.setParams({ "eAdditionalQuestionsPrevious" : true });
         event.fire();	
     },
     
     hAdditionalQuestionsNext: function (cmp, evt, hlp){
-        cmp.find("renderAdditionalQuestions").set("false");
+        var hideThisDiv = cmp.find("renderAdditionalQuestions");
+        $A.util.addClass(hideThisDiv,"toggle-hide");
         var event = $A.get("e.c:RecruitingAppAdditionalQuestionsEvent");
         event.setParams({ "eAdditionalQuestionsNext" : true });
         event.fire();	
     },
     
     hRenderAdditionalQuestions : function(cmp, evt, hlp){
-        cmp.set("v.renderAdditionalQuestions", true );
+        var showThisDiv = cmp.find("renderAdditionalQuestions");
+        $A.util.removeClass(showThisDiv,"toggle-hide");
     }    
-    
-    
-    
+
 })

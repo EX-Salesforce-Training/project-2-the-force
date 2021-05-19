@@ -1,6 +1,6 @@
-.THIS.hide {
- 	display: none;
- }
+.THIS.toggle-hide {
+  display: none;
+}
  
  .THIS.btn {
  	margin-bottom: 10px;

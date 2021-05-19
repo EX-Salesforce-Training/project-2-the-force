@@ -1,3 +1,4 @@
 <aura:event type="APPLICATION">
     <aura:attribute name="eEducationInputNext" type="boolean" default="true"/>
+    <aura:attribute name="eCandidateID" type="String"/>
 </aura:event>

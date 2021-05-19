@@ -4,33 +4,38 @@
     <aura:handler name="renderHandlerPrevious" event="c:RecruitingAppEducationInputEventPrevious" action="{!c.cRenderCandidateInput}"/>
     <aura:registerEvent name="candidateEventPrevious" type="c:RecruitingAppCandidateInputEventPrevious"/>
     <aura:registerEvent name="candidateEventNext" type="c:RecruitingAppCandidateInputEvent"/>
-    <aura:if isTrue="{!v.renderCandidateInput}">
-    <lightning:card>
+    <aura:attribute name="vSelectedPosition" type="Position__c"/>
+    <aura:attribute name="vCandidateID" type="String"/>
+    
+    <!-- <aura:if isTrue="{!v.renderCandidateInput}"> -->
+    <div class="toggle-hide" aura:id="renderCandidateInput">
+        <lightning:card>
             <lightning:recordEditForm objectApiName="Candidate__c" aura:id="candidateInputForm">
-                <div class="slds-grid slds-gutters">
-  				<div class="slds-col">
-               <lightning:outputField fieldName="AccountId" />
-                <lightning:inputField fieldName="First_Name__c" />
-                <lightning:inputField fieldName="Last_Name__c" />
-                <lightning:inputField fieldName="Email__c" />
-                <lightning:inputField fieldName="Phone__c" />
-                <lightning:inputField fieldName="US_Citizen__c" />
-                <lightning:inputField fieldName="Visa_Required__c" />
-                <lightning:inputField fieldName="Education__c"/>
+                <div class="slds-grid slds-gutters toggle-hide">
+                    <div class="slds-col">
+                        <lightning:outputField fieldName="Id" aura:id="ID"/>
+                        <lightning:inputField fieldName="First_Name__c" />
+                        <lightning:inputField fieldName="Last_Name__c" />
+                        <lightning:inputField fieldName="Email__c" />
+                        <lightning:inputField fieldName="Phone__c" />
+                        <lightning:inputField fieldName="US_Citizen__c" />
+                        <lightning:inputField fieldName="Visa_Required__c" />
+                        <lightning:inputField fieldName="Education__c"/>
                     </div>
-  				<div class="slds-col">
-                <lightning:inputField fieldName="Street_Address_1__c" />
-                <lightning:inputField fieldName="Street_Address_2__c" />
-                <lightning:inputField fieldName="City__c" />    
-                <lightning:inputField fieldName="State_Province__c" />
-                <lightning:inputField fieldName="Zip_Postal_Code__c" />
-                <lightning:inputField fieldName="Country__c" />
-                	<br/> <br/>
-                <lightning:button label="Previous" onClick="{!c.cCandidateInputPrevious}"/>
-                <lightning:button type="submit" label="Next" onClick="{!c.cCandidateInputNext}"/>
-                </div>
+                    <div class="slds-col">
+                        <lightning:inputField fieldName="Street_Address_1__c" />
+                        <lightning:inputField fieldName="Street_Address_2__c" />
+                        <lightning:inputField fieldName="City__c" />    
+                        <lightning:inputField fieldName="State_Province__c" />
+                        <lightning:inputField fieldName="Zip_Postal_Code__c" />
+                        <lightning:inputField fieldName="Country__c" />
+                        <br/> <br/>
+                        <lightning:button label="Previous" onClick="{!c.cCandidateInputPrevious}"/>
+                        <lightning:button type="submit" label="Next" onClick="{!c.cCandidateInputNext}"/>
+                    </div>
                 </div>
             </lightning:recordEditForm>
         </lightning:card>
-    </aura:if>
+    </div>
+<!--     </aura:if>  -->
 </aura:component>

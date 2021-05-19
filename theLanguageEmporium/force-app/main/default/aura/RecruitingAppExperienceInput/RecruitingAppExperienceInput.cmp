@@ -1,45 +1,20 @@
 <aura:component>
     <aura:attribute name="renderExperienceInput" type="boolean" default="true"/>
     <aura:handler name="renderHandler" event="c:RecruitingAppEducationInputEvent" action="{!c.cRenderExperienceInput}"/>
+    <aura:handler name="renderHandlerPrevious" event="c:RecruitingAppAdditionalQuestionsEventPrevious" action="{!c.cRenderExperienceInput}"/>
     <aura:registerEvent name="experienceEventPrevious" type="c:RecruitingAppExperienceInputEventPrevious"/>
     <aura:registerEvent name="experienceEventNext" type="c:RecruitingAppExperienceInputEvent"/>
     
-    <aura:if isTrue="v.renderExperienceInput">
+    <aura:attribute name="vCandidateID" type="String"/>
+    
+<!--     <aura:if isTrue="v.renderExperienceInput">  -->
+    <div class="toggle-hide" aura:id="renderExperienceInput">
         <lightning:card>
-            <div class="slds-grid slds-gutters">
+            <div class="slds-grid slds-gutters slds-size_4-of-12 toggle-hide">
                 <lightning:recordEditForm objectApiName="Candidate_Experience__c">
                     <div class="slds-col">
                         <span>
-                            <lightning:inputField fieldName="Company_Name__c" />
-                            <lightning:inputField fieldName="Company_Phone__c" />
-                            <lightning:inputField fieldName="Start_Date__c" />
-                            <lightning:inputField fieldName="End_Date__c" />
-                            <lightning:inputField fieldName="Description__c" />
-                            <lightning:button type="submit" label="Next"/>
-                        </span>
-                    </div>  
-                </lightning:recordEditForm>
-            </div>
-            <br/> <br/>
-            <div class="slds-grid slds-gutters">
-                <lightning:recordEditForm objectApiName="Candidate_Experience__c">
-                    <div class="slds-col">
-                        <span>
-                            <lightning:inputField fieldName="Company_Name__c" />
-                            <lightning:inputField fieldName="Company_Phone__c" />
-                            <lightning:inputField fieldName="Start_Date__c" />
-                            <lightning:inputField fieldName="End_Date__c" />
-                            <lightning:inputField fieldName="Description__c" />
-                            <lightning:button type="submit" label="Next"/>
-                        </span>
-                    </div>  
-                </lightning:recordEditForm>
-            </div>
-            <br/> <br/>
-            <div class="slds-grid slds-gutters">
-                <lightning:recordEditForm objectApiName="Candidate_Experience__c">
-                    <div class="slds-col">
-                        <span>
+                            <lightning:outputField fieldName="Candidate__c" value="v.vCandidateID"/>                            
                             <lightning:inputField fieldName="Company_Name__c" />
                             <lightning:inputField fieldName="Company_Phone__c" />
                             <lightning:inputField fieldName="Start_Date__c" />
@@ -52,5 +27,52 @@
                 </lightning:recordEditForm>
             </div>
         </lightning:card>
-    </aura:if>
+    </div>
+<!--     </aura:if>  -->
 </aura:component>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+            <div class="slds-grid slds-gutters slds-size_4-of-12">
+                <lightning:recordEditForm objectApiName="Candidate_Experience__c">
+                    <div class="slds-col">
+                        <span>
+                            <lightning:outputField fieldName="Candidate__c" value="v.vCandidateID"/>
+                            <lightning:inputField fieldName="Company_Name__c" />
+                            <lightning:inputField fieldName="Company_Phone__c" />
+                            <lightning:inputField fieldName="Start_Date__c" />
+                            <lightning:inputField fieldName="End_Date__c" />
+                            <lightning:inputField fieldName="Description__c" />
+                            <lightning:button type="submit" label="Submit"/>
+                        </span>
+                    </div>  
+                </lightning:recordEditForm>
+            </div>
+            <br/> <br/>
+            <div class="slds-grid slds-gutters slds-size_4-of-12">
+                <lightning:recordEditForm objectApiName="Candidate_Experience__c">
+                    <div class="slds-col">
+                        <span>
+                            <lightning:outputField fieldName="Candidate__c" value="v.vCandidateID"/>                            
+                            <lightning:inputField fieldName="Company_Name__c" />
+                            <lightning:inputField fieldName="Company_Phone__c" />
+                            <lightning:inputField fieldName="Start_Date__c" />
+                            <lightning:inputField fieldName="End_Date__c" />
+                            <lightning:inputField fieldName="Description__c" />
+                            <lightning:button type="submit" label="Submit"/>
+                        </span>
+                    </div>  
+                </lightning:recordEditForm>
+            </div>
+            <br/> <br/>
+ -->

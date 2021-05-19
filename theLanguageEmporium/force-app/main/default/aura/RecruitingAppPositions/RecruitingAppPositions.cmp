@@ -1,29 +1,34 @@
 <aura:component controller="RecruitingAppPositionsAPEX" access="global">
     
     <aura:registerEvent name="vPositionEvent" type="c:RecruitingAppPositionsEvent" />
-    <aura:handler name="renderHandler" event="c:RecruitingAppCandidateInputEventPrevious" action="{!c.cRenderPositions}"/>
+    <aura:handler name="renderHandlerPrevious" event="c:RecruitingAppCandidateInputEventPrevious" action="{!c.cRenderPositions}"/>
+    <aura:handler name="renderHandler" event="c:RecruitingAppThanksEvent" action="{!c.cRenderPositions}"/>
     <aura:handler name="init" value="{!this}" action="{!c.cOpenPositions}"/>
     <aura:attribute name="positions" type="Position__c[]" default=""/>
     <aura:attribute name="selectedPosition" type="Position__c" default=""/>
+    <aura:attribute name="selectedPositionDesc" type="String" default=""/>
     
-    <aura:attribute name="renderPositions" type="boolean" default="true"/> 
-    <aura:if isTrue="{!v.renderPositions}">
+    <!-- <aura:attribute name="renderPositions" type="boolean" default="true"/>  -->
+    <!-- <aura:if isTrue="{!v.renderPositions}"> -->
+    
+    <div class="" aura:id="renderPositions">
         <lightning:card>
             <lightning:select aura:id="positionSelect" name="positionSelect" label="Open positions:" required="true" onchange="{!c.cOnChange}">
                 <aura:iteration items="{!v.positions}" var="position">
-                    <option value="{!position}" text="{!position.Name}"/>
+                    <option value="{!position.Description__c}" text="{!position.Name}"/>
                 </aura:iteration>
             </lightning:select>
             
-            <div class="slds-scrollable_y" style="height:5rem;width:24rem">
+            <div class="slds-scrollable_y" style="height:10rem;width:24rem">
                 <p style="font-size:14px;font-weight:bold;text-decoration:underline;">Job Description:</p>
                 <div class="slds-text-longform">
-                    <lightning:outputField value="{!v.selectedPosition.Description__c}"/>	
+                    {!v.selectedPositionDesc}	
                 </div>
             </div>
             <br/> <br/>
             <lightning:button label="Next" onClick="{!c.cPositionsNext}"/>
         </lightning:card>     
-    </aura:if>
+    </div>            
+    <!-- </aura:if> -->
     
 </aura:component>

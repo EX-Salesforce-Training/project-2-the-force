@@ -12,11 +12,11 @@
     },
 
     cAdditionalQuestionsPrevious: function (cmp, evt, hlp){
-        hlp.hHandleSubmit (cmp);		
+        hlp.hAdditionalQuestionsPrevious (cmp);		
     },
     
     cAdditionalQuestionsNext: function (cmp, evt, hlp){
-        hlp.hHandleSubmit (cmp);		
+        hlp.hAdditionalQuestionsNext (cmp);		
     },
     
     cRenderAdditionalQuestions : function(cmp, evt, hlp){
