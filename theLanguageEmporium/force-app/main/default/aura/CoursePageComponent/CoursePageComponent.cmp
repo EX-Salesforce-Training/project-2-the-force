@@ -1,0 +1,69 @@
+<aura:component controller="CourseContentController" implements="forceCommunity:availableForAllPageTypes, force:hasRecordId" access="global">
+
+    <aura:attribute name="courseName" type="string" default="German 1501" />
+    <aura:attribute name="courseId" type="id" default="a055e00000148uVAAQ" />
+    <aura:attribute name="course" type="Object" />
+    <aura:attribute name="activeQuiz" type="boolean" default="false" />
+    <aura:attribute name="activeLesson" type="boolean" />
+    <aura:attribute name="activeContentId" type="id" />
+    <aura:attribute name="lessonList" type="Object[]"/>
+    <aura:attribute name="quizList" type="List"/>
+
+    <!-- On course page init, get list of assocaiated Lessons and Quizzes-->
+    <aura:handler name="init" value="{!this}" action="{!c.initPage}"/>
+    <aura:handler name="renderEvent" event="c:contentRender" action="{!c.startContent}"/>
+
+    <force:recordData aura:id = "courseRecord"
+                    recordId = "{!v.courseId}"
+                    targetFields="{!v.course}"
+                    layoutType="FULL"
+  />
+
+    <!-- 
+        The Main course display portion will remain rendered 
+        and be hidden with a CSS display:none since we will
+        be coming back to this content when a quiz/lesson concludes.     
+    -->
+    <div aura:id="course-display">
+        <h2 class="slds-text-heading_large slds-align_absolute-center slds-m-around_medium">{!v.course.Name}</h2>
+
+        <div class="container slds-m-around_large" id="lessons-container">
+            <h1 class="slds-text-heading_medium slds-m-bottom_x-small">Lessons</h1>
+            <div id="lessons-list" class="slds-box">
+
+                <!--Sub component Lesson Card -->
+                <aura:iteration items="{!v.lessonList}" var="lesson">
+                    <c:contentCard contentType="Lesson" lesson="true" getContent="{!c.startLesson}" recordId="{!lesson.Id}" />
+                </aura:iteration>
+                
+                
+            </div>
+        </div>
+
+
+
+        <div class="container slds-m-around_large" id="quizes-container">
+            <h1 class="slds-text-heading_medium slds-m-bottom_x-small">Quizes</h1>
+            <div id="quizes-list" class="slds-box ">
+
+                <!--Sub component Quiz Card -->
+                <aura:iteration items="{!v.quizList}" var="quiz">
+                    <c:contentCard contentType="Quiz" quiz="true" getContent="{!c.startQuiz}" recordId="{!quiz.Id}"/>
+                </aura:iteration>
+                
+
+            </div>
+        </div>
+    </div>
+    <!--
+	<aura:if isTrue="activeLesson">
+        <c:LessonComponent/>
+    </aura:if>
+    -->
+    <aura:if isTrue="{!v.activeQuiz}">
+        <c:QuizComponent submitQuiz="{!c.endQuiz}" quizId="{!v.activeContentId}"/>
+    </aura:if>
+
+
+
+</aura:component>

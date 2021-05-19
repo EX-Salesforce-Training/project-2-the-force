@@ -1,0 +1,4 @@
+<aura:event type="COMPONENT" description="Event template">
+  <aura:attribute name="contentId" type="Id"/>
+  <aura:attribute name="contentType" type="String"/>
+</aura:event>

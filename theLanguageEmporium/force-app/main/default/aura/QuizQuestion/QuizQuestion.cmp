@@ -1,0 +1,46 @@
+<aura:component implements="force:hasRecordId" access="global">
+  <aura:attribute name="questionNum" type = "Integer" default="1"/>
+  <aura:attribute name="questionId" type = "Id" default="a0M5e000000AGwpEAG"/>
+  <aura:attribute name="fields" type="Object" />
+  <aura:attribute name="answerList" type="List"/>
+
+
+  <aura:handler name="change" value="{!v.fields}" action="{!c.initQuestion}"/>
+
+  <force:recordData aura:id = "contentRecord"
+                    recordId = "{!v.questionId}"
+                    targetFields="{!v.fields}"
+                    layoutType="FULL"
+  />
+
+  <article class="slds-card slds-col slds-size_1-of-1">
+    <div class="slds-card__header slds-grid">
+        <header class="slds-media slds-media_center slds-has-flexi-truncate">
+            <div class="slds-media__figure">
+                <div class="slds-card__header-title">
+                    <span>{!v.questionNum}. {!v.fields.Prompt__c}</span>
+                </div>
+            </div>
+        </header>
+    </div>
+    <div class="slds-card__body slds-card__body_inner slds-grid slds-wrap slds-gutters">
+      <fieldset class="slds-form-element" id="question-1">
+        <div class="slds-form-element__control slds-grid slds-wrap slds-gutters">
+        <aura:iteration items="{!v.answerList}" var="answer">
+
+          <span class="slds-radio slds-col slds-size_1-of-2 slds-m-around_x-small">
+            <input type="radio" id="{!'radio-'+ answer.number +'-' + v.questionNum}" value="{!'radio-'+ answer.number +'-' + v.questionNum}" name="{!'question-' + v.questionNum}" checked="" />
+            <label class="slds-radio__label" for="{!'radio-'+ answer.number +'-' + v.questionNum}">
+              <span class="slds-radio_faux"></span>
+              <span class="slds-form-element__label">{!answer.text}</span>
+            </label>
+          </span>
+        </aura:iteration>
+        
+        </div>
+      </fieldset>
+    </div>
+</article>
+
+
+</aura:component>	

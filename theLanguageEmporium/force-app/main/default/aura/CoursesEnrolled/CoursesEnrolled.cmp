@@ -1,0 +1,33 @@
+<aura:component controller="ContactData" implements="forceCommunity:availableForAllPageTypes" access="global" >
+    <aura:attribute name="courseInactive" type="Boolean" default="True"/>
+    <aura:attribute name="courseActive" type="Boolean" default="False"/>
+    <aura:attribute name="activeCourse" type="id" default=""/>
+    <aura:attribute name="Contact" type="id" default="0035e000003J6QmAAK"/>
+    <aura:attribute name="Courses" type="Object[]"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.getCourses}"/>
+    <aura:handler name="renderCoursePage" event="c:courseRender" action="{!c.enterCourse}"/>
+
+        <div class="container slds-m-around_large" aura:id="course-list">
+            <lightning:card footer="Thank you for choosing TheLanguageEmporium">
+                <div class="container slds-m-around_large" id="courses-enrolled">
+                    <h3  class="slds-text-heading_large slds-align_absolute-center slds-m-bottom_x-small">Currently Enrolled Courses</h3>
+                </div>
+                
+                <ul class="slds-p-horizontal_small">
+
+                    <aura:iteration items="{!v.Courses}" var="Course">
+                        <c:CourseCardComponent courseId="{!Course.Course__c}"/>
+                    </aura:iteration>
+
+
+                </ul>
+            </lightning:card>
+        </div>
+
+    <aura:if isTrue="{!v.courseActive}">
+        <c:CoursePageComponent courseId="{!v.activeCourse}" />
+    </aura:if>
+    <!-- a lightning card that allows the user to have a concentrated view of their enrolled courses-->
+    
+</aura:component>
