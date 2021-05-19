@@ -23,8 +23,6 @@
 		component.set("v.courseActive", "True");
 
 		this.hideCourseList(component);
-		
-		
 	},
 	hideCourseList : function(component){
 		console.log("attempting to hide course list")
