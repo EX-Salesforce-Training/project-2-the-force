@@ -1,4 +1,4 @@
-<aura:component controller="CourseContentController" implements="force:hasRecordId" access="global">
+<aura:component controller="CourseContentController" implements="forceCommunity:availableForAllPageTypes, force:hasRecordId" access="global">
 
     <aura:attribute name="courseName" type="string" default="German 1501" />
     <aura:attribute name="courseId" type="id" default="a055e00000148uVAAQ" />

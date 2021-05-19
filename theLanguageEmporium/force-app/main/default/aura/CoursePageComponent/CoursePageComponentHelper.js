@@ -31,6 +31,10 @@
                 //get Lesson names and descriptions, use for iterator
                 //get Quiz names and grades, use for iterator
             }
+            else if (response.getState() === "ERROR"){
+
+                console.log(response.getError());
+            }
         })
         $A.enqueueAction(lessonMethod);
         $A.enqueueAction(quizMethod);

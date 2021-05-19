@@ -1,4 +1,4 @@
-<aura:application extends="force:slds">
+<aura:application extends="force:slds" implements="forceCommunity:availableForAllPageTypes">
     
     <aura:handler name="navEvent" event="c:navBarEvent" action="{!c.navigate}"/> 
 

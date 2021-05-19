@@ -1,7 +1,7 @@
 //Abdulloh Y
 //Apex Controller for functionality in the Store Component
 
-public class StorePageController {
+public without sharing class StorePageController {
     
     //Method to get the available courses with relevant fields from the database.
     @AuraEnabled
@@ -22,10 +22,8 @@ public class StorePageController {
         Id currentUserContact = [SELECT ContactId FROM User WHERE Id = :userId LIMIT 1].contactId;
         Id currentUserAccount = [SELECT AccountId FROM User WHERE id=:userId LIMIT 1].accountId;
         Id contractId = [SELECT ID FROM Contract LIMIT 1].ID;
-        //hard coding for now
-        currentUserContact = '0035e000002Akl7AAC';
-        currentUserAccount = '0015e000006G5ivAAC';
-        //Id contractId = '8005e000000x84RAAQ';
+        currentUserContact = '0035e000003J6QmAAK';
+        currentUserAccount = '0015e000004zhHzAAI';
 
         try {
             List<Order> orders = new List<Order>();

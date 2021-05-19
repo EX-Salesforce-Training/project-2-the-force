@@ -19,6 +19,10 @@
                 console.log("Orders Created")
             //success
             }
+            else if (response.getState() === "ERROR"){
+                console.log("Checking for Orders error");
+                console.log(response.getError());
+            }
         });
         $A.enqueueAction(method);
     },

@@ -1,6 +1,7 @@
-<aura:component implements="force:hasRecordId" access="global">
+<aura:component implements="forceCommunity:availableForAllPageTypes, force:hasRecordId" access="global">
   <aura:attribute name="courseId" type="String" default="" />
   <aura:attribute name="course" type="Object"/>
+  <aura:attribute name="recordError" type="String"/>
 
   <aura:registerEvent name="renderCoursePage" type="c:courseRender"/>
   <aura:registerEvent name="hideAccountInfo" type="c:hideAccountEvent"/>
@@ -8,9 +9,10 @@
   <force:recordData aura:id = "courseRecord"
   recordId = "{!v.courseId}"
   targetFields="{!v.course}"
+  targetError="{!v.recordError}"
   layoutType="FULL"
 />
-<li class=" slds-text-heading_medium" onclick="{!c.fireCourseRender}">{!v.course.Name}
+<li class=" slds-text-heading_medium" onclick="{!c.fireCourseRender}">{!v.course.Name}. {!v.recordError}
     <!-- <div>
           <h5 class="slds-text-body_large slds-align_absolute-center slds-m-around_medium">Check out your current progress!</h5>
           <lightning:progressBar value="100" size="medium" />

@@ -1,10 +1,10 @@
-public with sharing class ContactData {
+public without sharing class ContactData {
     
     @AuraEnabled
     public static user fetchUser(){
-     // query current user information  
-      User oUser = [select id,Country,Email,FirstName,LastName FROM User Where id =: userInfo.getUserId()];
-        return oUser;
+    // query current user information  
+     User oUser = [select id,Country,Email,FirstName,LastName, Phone FROM User Where id =:userInfo.getUserId()];
+    return oUser;
     }
 
     // @AuraEnabled

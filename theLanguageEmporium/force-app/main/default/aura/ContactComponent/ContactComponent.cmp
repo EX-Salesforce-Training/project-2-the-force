@@ -16,11 +16,6 @@
 <aura:handler name="init" value="this" action="{!c.doInit}"/>
 <aura:handler name="hideAccountInfo" event="c:hideAccountevent" action="{!c.hideInfo}"/>
 
-<!-- A title that mentions the logged in user's name-->
-<div>
-    <h5 class="slds-text-heading_large slds-align_absolute-center slds-m-around_medium"> Welcome {!v.userInfo.FirstName}, to the Language Emporium </h5>
-</div>
-
 
 <!-- Seperating an individual div to create the grid utilized by the navigation and contact information-->
 <div class="slds-grid slds-gutters" aura:id="account-info">
