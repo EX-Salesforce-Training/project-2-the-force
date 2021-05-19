@@ -22,7 +22,11 @@
             <div class="slds-scrollable_y" style="height:10rem;width:24rem">
                 <p style="font-size:14px;font-weight:bold;text-decoration:underline;">Job Description:</p>
                 <div class="slds-text-longform">
+<<<<<<< HEAD
                     {!v.selectedPositionDesc}	
+=======
+                     {!v.selectedPositionDesc}	
+>>>>>>> b74db839ab554c934763b65eebb55abb3d0337e3
                 </div>
             </div>
             <br/> <br/>
