@@ -6,7 +6,7 @@ public class OrderTriggerHandler {
         for (Order o: orders) {
             Learner_Access__c lA = new Learner_Access__c();
             
-            lA.Learner__c = o.AccountId;
+            lA.Learner__c = o.Learner__c;
             lA.Course__c = o.Course__c;
             lA.Order__c = o.Id;
             lA.Access_Since__c = system.today();
