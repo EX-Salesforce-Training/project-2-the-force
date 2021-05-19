@@ -1,0 +1,30 @@
+<!--Component for each individual Course that is displayed in the available courses-->
+<aura:component implements="forceCommunity:availableForAllPageTypes">
+    <aura:attribute name="courseName" type="String"/>
+    <aura:attribute name="startDate" type="Date"/>
+    <aura:attribute name="courseID" type="ID"/>
+    <aura:attribute name="Language" type="String"/>
+    
+    <aura:registerEvent name="addToCart" type="c:addToCartEvent"/>
+
+    <article class="slds-card">
+        <div class="slds-grid slds-gutters">
+            <div class="slds-col slds-size_2-of-3">
+                <div class="slds-card__header slds-grid">
+                    <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                        <div class="slds-media__figure">
+                            <div class="slds-card__header-title" style="font-size:x-large">
+                                <span>{!v.courseName}</span>
+                            </div>
+                        </div>
+                    </header>
+                </div>
+                <div class="slds-card__body slds-card__body_inner">Start Date: <lightning:formattedDateTime value="{!v.startDate}"/></div>
+                <div class="slds-card__body slds-card__body_inner">Language: {!v.Language}</div>
+            </div>
+            <div class="slds-col_bump-left slds-size_1-of-8 slds-align-bottom">
+				<button class="slds-button slds-button_neutral slds-m-right_large slds-m-top-large" onclick="{!c.addCourseToCart}">Add to Cart</button>
+            </div>
+        </div>
+    </article>
+</aura:component>

@@ -1,0 +1,16 @@
+<!--Main Store component that contains the available courses and the shopping cart-->
+<aura:component implements="forceCommunity:availableForAllPageTypes">
+    <aura:attribute name="shoppingCartItems" type="Id[]"/>
+    
+    <aura:handler name="addToCart" event="c:addToCartEvent" action="{!c.updateCart}"/>
+
+    <h2 class="slds-align_absolute-center slds-m-around_medium slds-text-heading_large">Store</h2>
+    <div class="slds-grid slds-gutters">
+     <div class="slds-col slds-size_7-of-12">
+         <c:AvailableCourses/>
+     </div>
+     <div class="slds-col_bump-left slds-size_1-of-3 ">
+         <c:ShoppingCart courseListSC="{!v.shoppingCartItems}"/>
+     </div>
+   </div>
+</aura:component>	

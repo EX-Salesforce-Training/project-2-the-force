@@ -1,0 +1,40 @@
+<aura:component controller="ContactData" implements="forceCommunity:availableForAllPageTypes,force:hasRecordId" access="global" >
+
+<!-- creating an attribute that refers to the recordID-->
+<aura:attribute name="recordId" type="Id" />
+
+<!-- creating an attribute that refers to the conlist-->
+<aura:attribute name="userInfo" type="user"/>
+<aura:attribute name="fields" type="Object" />
+<aura:attribute name="LearnerName" type="String" />
+
+<force:recordData aura:id="contactRecord"
+                    recordId="{!v.ContactId}"
+                    targetFields="{!v.Contact}" />
+                    
+
+<aura:handler name="init" value="this" action="{!c.doInit}"/>
+<aura:handler name="hideAccountInfo" event="c:hideAccountevent" action="{!c.hideInfo}"/>
+
+
+<!-- Seperating an individual div to create the grid utilized by the navigation and contact information-->
+<div class="slds-grid slds-gutters" aura:id="account-info">
+    <div class="slds-col slds-size_11-of-12">
+        
+        <!-- Contact information Component, allows the user to view their contact information -->
+        <span> <div class="container slds-m-around_large" id="contactinfo">
+            <lightning:card title="{!v.userInfo.FirstName}" iconName="standard:contact">
+                <div class="slds-grid">
+                    <ul>    
+                        <li class=" slds-text-heading_medium slds-col slds-size_12-of-12"> Learner's Name : {!v.userInfo.LastName}, {!v.userInfo.FirstName} </li><br/>
+                        <li class=" slds-text-heading_medium slds-col slds-size_12-of-12"> Learner's Phone Number : {!v.userInfo.Phone} </li><br/>
+                        <li class=" slds-text-heading_medium slds-col slds-size_12-of-12"> Learner's Email : {!v.userInfo.Email}    </li><br/>
+                        <li class=" slds-text-heading_medium slds-col slds-size_12-of-12"> Learner's Country : {!v.userInfo.Country} </li><br/>
+                    </ul>
+                </div>
+            </lightning:card>
+            </div></span>
+    </div>
+</div>
+
+</aura:component>
