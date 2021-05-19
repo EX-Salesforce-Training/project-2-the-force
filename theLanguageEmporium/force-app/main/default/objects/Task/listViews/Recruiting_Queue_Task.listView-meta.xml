@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Recruiting_Queue_Task</fullName>
+    <filterScope>Queue</filterScope>
+    <label>Recruiting Queue</label>
+    <queue>Recruiting_Queue</queue>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>
